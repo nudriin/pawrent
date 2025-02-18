@@ -1,5 +1,6 @@
 import Charity from "@/components/Charity"
 import Doctor from "@/components/Doctor"
+import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import { motion, useScroll } from "motion/react"
@@ -26,6 +27,7 @@ export default function Home() {
             <Hero />
             <Charity />
             <Doctor />
+            <Footer />
         </>
     )
 }

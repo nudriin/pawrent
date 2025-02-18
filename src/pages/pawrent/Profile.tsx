@@ -131,10 +131,10 @@ export default function Profile() {
     }
 
     return (
-        <div className="max-h-screen overflow-hidden">
+        <div className="max-h-screen">
             <Header />
             <motion.div
-                className="flex items-center justify-center min-h-screen lg:mt-10"
+                className="flex items-center justify-center min-h-screen lg:mt-20"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
