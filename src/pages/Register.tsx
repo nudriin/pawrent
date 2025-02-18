@@ -3,7 +3,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -80,16 +79,24 @@ export function Register() {
                             </div>
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="password">Password</Label>
-                                <Input id="password" placeholder="*****" />
+                                <Input
+                                    id="password"
+                                    placeholder="*****"
+                                    type="password"
+                                />
                             </div>
+                        </div>
+                        <div className="flex w-full mt-4">
+                            <Button
+                                type="submit"
+                                onClick={handleRegister}
+                                className="w-full"
+                            >
+                                Register
+                            </Button>
                         </div>
                     </form>
                 </CardContent>
-                <CardFooter className="flex w-full">
-                    <Button onClick={handleRegister} className="w-full">
-                        Register
-                    </Button>
-                </CardFooter>
             </Card>
         </div>
     )
