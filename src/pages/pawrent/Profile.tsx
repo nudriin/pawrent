@@ -1,3 +1,4 @@
+import Header from "@/components/Header"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -93,96 +94,103 @@ export default function Profile() {
     }
 
     return (
-        <div className="flex items-center justify-between min-h-screen">
-            <Card className="w-[430px] shadow-2xl mx-auto px-2 pb-3">
-                <CardHeader>
-                    <CardTitle className="text-2xl font-bold">
-                        Profile
-                    </CardTitle>
-                    <CardDescription>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="">
-                    <Avatar className="mx-auto w-24 h-24">
-                        <AvatarImage
-                            src="https://avatars.githubusercontent.com/u/145898263?v=4"
-                            alt="@shadcn"
-                        />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <form>
-                        <div className="grid w-full items-center gap-4">
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="nama_lengkap_pawrent">
-                                    Name
-                                </Label>
-                                <Input
-                                    id="nama_lengkap_pawrent"
-                                    placeholder="John Doe"
-                                    defaultValue={auth?.nama_lengkap_pawrent}
-                                    onChange={handleChange}
-                                />
+        <div className="max-h-screen overflow-hidden">
+            <Header />
+            <div className="flex items-center justify-between min-h-screen lg:mt-10">
+                <Card className="w-[430px] shadow-2xl mx-auto px-2 pb-3">
+                    <CardHeader>
+                        <CardTitle className="text-2xl font-bold">
+                            Profile
+                        </CardTitle>
+                        <CardDescription>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="">
+                        <Avatar className="mx-auto w-24 h-24">
+                            <AvatarImage
+                                src="https://avatars.githubusercontent.com/u/145898263?v=4"
+                                alt="@shadcn"
+                            />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                        <form>
+                            <div className="grid w-full items-center gap-4">
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="nama_lengkap_pawrent">
+                                        Name
+                                    </Label>
+                                    <Input
+                                        id="nama_lengkap_pawrent"
+                                        placeholder="John Doe"
+                                        defaultValue={
+                                            auth?.nama_lengkap_pawrent
+                                        }
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="no_telepon_pawrent">
+                                        Phone
+                                    </Label>
+                                    <Input
+                                        id="no_telepon_pawrent"
+                                        placeholder="0829110****"
+                                        defaultValue={auth.no_telepon_pawrent}
+                                        onChange={handleChange}
+                                    />
+                                </div>
                             </div>
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="no_telepon_pawrent">
-                                    Phone
-                                </Label>
-                                <Input
-                                    id="no_telepon_pawrent"
-                                    placeholder="0829110****"
-                                    defaultValue={auth.no_telepon_pawrent}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="flex w-full mt-4">
-                            <Button
-                                className="w-full"
-                                onClick={handleUpdate}
-                                type="submit"
-                            >
-                                Update
-                            </Button>
-                        </div>
-                    </form>
-                    <div className="flex w-full mt-4">
-                        <AlertDialog>
-                            <AlertDialogTrigger asChild>
+                            <div className="flex w-full mt-4">
                                 <Button
                                     className="w-full"
-                                    variant={"destructive"}
+                                    onClick={handleUpdate}
+                                    type="submit"
                                 >
-                                    Delete
+                                    Update
                                 </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                                <AlertDialogHeader>
-                                    <AlertDialogTitle>
-                                        Are you absolutely sure?
-                                    </AlertDialogTitle>
-                                    <AlertDialogDescription>
-                                        This action cannot be undone. This will
-                                        permanently delete your account and
-                                        remove your data from our servers.
-                                    </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                    <AlertDialogCancel>
-                                        Cancel
-                                    </AlertDialogCancel>
-                                    <AlertDialogAction
-                                        onClick={handleDelete}
-                                        type="submit"
+                            </div>
+                        </form>
+                        <div className="flex w-full mt-4">
+                            <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                    <Button
+                                        className="w-full"
+                                        variant={"destructive"}
                                     >
-                                        Continue
-                                    </AlertDialogAction>
-                                </AlertDialogFooter>
-                            </AlertDialogContent>
-                        </AlertDialog>
-                    </div>
-                </CardContent>
-            </Card>
+                                        Delete
+                                    </Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                        <AlertDialogTitle>
+                                            Are you absolutely sure?
+                                        </AlertDialogTitle>
+                                        <AlertDialogDescription>
+                                            This action cannot be undone. This
+                                            will permanently delete your account
+                                            and remove your data from our
+                                            servers.
+                                        </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel>
+                                            Cancel
+                                        </AlertDialogCancel>
+                                        <AlertDialogAction
+                                            onClick={handleDelete}
+                                            type="submit"
+                                        >
+                                            Continue
+                                        </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     )
 }
