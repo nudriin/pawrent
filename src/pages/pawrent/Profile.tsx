@@ -16,6 +16,7 @@ import {
     Card,
     CardContent,
     CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -94,6 +95,10 @@ export default function Profile() {
         }
     }
 
+    const handleLogout = () => {
+        removeCookie("auth")
+    }
+
     // Variants untuk animasi
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -138,14 +143,13 @@ export default function Profile() {
                     <Card className="w-[430px] shadow-2xl mx-auto px-2 pb-3">
                         <CardHeader>
                             <motion.div variants={itemVariants}>
-                                <CardTitle className="text-2xl font-bold">
+                                <CardTitle className="text-4xl font-bold">
                                     Profile
                                 </CardTitle>
                             </motion.div>
                             <motion.div variants={itemVariants}>
                                 <CardDescription>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
+                                    Welcome to Pawrent profile portal
                                 </CardDescription>
                             </motion.div>
                         </CardHeader>
@@ -248,6 +252,14 @@ export default function Profile() {
                                 </AlertDialog>
                             </motion.div>
                         </CardContent>
+                        <CardFooter className="text-right self-end">
+                            <p
+                                onClick={handleLogout}
+                                className="text-right self-end justify-end text-red-500 cursor-pointer"
+                            >
+                                Logout?
+                            </p>
+                        </CardFooter>
                     </Card>
                 </motion.div>
             </motion.div>
