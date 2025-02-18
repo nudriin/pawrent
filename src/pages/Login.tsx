@@ -13,6 +13,7 @@ import { useState } from "react"
 import { useCookies } from "react-cookie"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { motion } from "framer-motion"
 
 interface LoginRequest {
     no_telepon_pawrent: string
@@ -58,61 +59,125 @@ export function Login() {
         }
     }
 
+    // Variants untuk animasi
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                when: "beforeChildren",
+            },
+        },
+    }
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50, scale: 0.95 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.5, ease: "easeOut" },
+        },
+    }
+
+    const headerVariants = {
+        hidden: { opacity: 0, x: -20 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+    }
+
+    const formItemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+    }
+
+    const footerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
+    }
+
     return (
-        <div className="flex items-center justify-center flex-col min-h-screen max-h-screen">
-            <Card className="w-[350px] shadow-2xl">
-                <CardHeader>
-                    <CardTitle className="text-4xl font-bold">Login</CardTitle>
-                    <CardDescription>
-                        Hello welcome back to Pawrent.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <form>
-                        <div className="grid w-full items-center gap-4">
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="no_telepon_pawrent">
-                                    Phone
-                                </Label>
-                                <Input
-                                    onChange={handleChange}
-                                    id="no_telepon_pawrent"
-                                    placeholder="0829110****"
-                                    type="tel"
-                                />
-                            </div>
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="nama_lengkap_pawrent">
-                                    Password
-                                </Label>
-                                <Input
-                                    id="nama_lengkap_pawrent"
-                                    placeholder="*****"
-                                    type="password"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex w-full mt-4">
-                            <Button
-                                type="submit"
-                                onClick={handleLogin}
-                                className="w-full rounded-full cursor-pointer"
-                            >
+        <motion.div
+            className="flex items-center justify-center flex-col min-h-screen max-h-screen"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <motion.div variants={cardVariants}>
+                <Card className="w-[350px] shadow-2xl">
+                    <CardHeader>
+                        <motion.div variants={headerVariants}>
+                            <CardTitle className="text-4xl font-bold">
                                 Login
-                            </Button>
-                        </div>
-                    </form>
-                </CardContent>
-                <CardFooter>
-                    <p className="text-muted-foreground">
-                        Don't have accout?{" "}
-                        <Link to="/register" className="text-paw">
-                            {" "}
-                            Register
-                        </Link>
-                    </p>
-                </CardFooter>
-            </Card>
-        </div>
+                            </CardTitle>
+                        </motion.div>
+                        <motion.div variants={headerVariants}>
+                            <CardDescription>
+                                Hello welcome back to Pawrent.
+                            </CardDescription>
+                        </motion.div>
+                    </CardHeader>
+                    <CardContent>
+                        <motion.form
+                            onSubmit={(e) => e.preventDefault()}
+                            initial="hidden"
+                            animate="visible"
+                            className="space-y-4"
+                        >
+                            <motion.div
+                                variants={formItemVariants}
+                                className="grid w-full items-center gap-4"
+                            >
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="no_telepon_pawrent">
+                                        Phone
+                                    </Label>
+                                    <Input
+                                        onChange={handleChange}
+                                        id="no_telepon_pawrent"
+                                        placeholder="0829110****"
+                                        type="tel"
+                                    />
+                                </div>
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="nama_lengkap_pawrent">
+                                        Password
+                                    </Label>
+                                    <Input
+                                        id="nama_lengkap_pawrent"
+                                        placeholder="*****"
+                                        type="password"
+                                    />
+                                </div>
+                            </motion.div>
+                            <motion.div
+                                variants={formItemVariants}
+                                className="flex w-full mt-4"
+                            >
+                                <Button
+                                    type="submit"
+                                    onClick={handleLogin}
+                                    className="w-full rounded-full cursor-pointer"
+                                >
+                                    Login
+                                </Button>
+                            </motion.div>
+                        </motion.form>
+                    </CardContent>
+                    <CardFooter>
+                        <motion.p
+                            variants={footerVariants}
+                            className="text-muted-foreground"
+                        >
+                            Don't have accout?{" "}
+                            <Link to="/register" className="text-paw">
+                                {" "}
+                                Register
+                            </Link>
+                        </motion.p>
+                    </CardFooter>
+                </Card>
+            </motion.div>
+        </motion.div>
     )
 }
