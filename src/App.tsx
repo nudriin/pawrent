@@ -5,6 +5,7 @@ import Profile from "./pages/pawrent/Profile"
 import { Login } from "./pages/Login"
 import PrivateRoute from "./components/PrivateRoute"
 import SignRoute from "./components/SignRoute"
+import Pet from "./pages/pet/Pet"
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 </Route>
                 <Route element={<PrivateRoute />}>
                     <Route element={<Profile />} path="/profile" />
+                    <Route element={<Pet />} path="/pet" />
                 </Route>
             </Routes>
         </BrowserRouter>
