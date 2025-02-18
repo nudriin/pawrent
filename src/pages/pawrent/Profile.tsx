@@ -1,3 +1,14 @@
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -20,7 +31,7 @@ interface UpdateRequest {
 }
 
 export default function Profile() {
-    const [cookies, setCookie] = useCookies(["auth"])
+    const [cookies, setCookie, removeCookie] = useCookies(["auth"])
     const auth = cookies.auth
     const [formData, setFormData] = useState<UpdateRequest | undefined>(auth)
 
@@ -52,6 +63,30 @@ export default function Profile() {
             console.log(body)
 
             navigate(0)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleDelete = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault()
+        try {
+            const response = await fetch("/api/pawrent", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    id_pawrent: auth.id_pawrent,
+                }),
+            })
+
+            const body = await response.json()
+
+            removeCookie("auth")
+            console.log(body)
+
+            navigate("/")
         } catch (error) {
             console.log(error)
         }
@@ -111,6 +146,41 @@ export default function Profile() {
                             </Button>
                         </div>
                     </form>
+                    <div className="flex w-full mt-4">
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <Button
+                                    className="w-full"
+                                    variant={"destructive"}
+                                >
+                                    Delete
+                                </Button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>
+                                        Are you absolutely sure?
+                                    </AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        This action cannot be undone. This will
+                                        permanently delete your account and
+                                        remove your data from our servers.
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>
+                                        Cancel
+                                    </AlertDialogCancel>
+                                    <AlertDialogAction
+                                        onClick={handleDelete}
+                                        type="submit"
+                                    >
+                                        Continue
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
+                    </div>
                 </CardContent>
             </Card>
         </div>
