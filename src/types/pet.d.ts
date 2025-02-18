@@ -5,3 +5,10 @@ export interface Pet {
     jenis_hewan: string
     id_pawrent: string
 }
+
+export interface PetAddRequest {
+    nama_hewan: string
+    tahun_lahir_hewan: string
+    jenis_hewan: string
+    id_pawrent: string
+}

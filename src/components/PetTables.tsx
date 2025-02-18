@@ -9,23 +9,28 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Button } from "./ui/button"
+import AddPetBtn from "./AddPetBtn"
 
 export default function PetTables({ pets }: { pets: Pet[] }) {
     return (
         <div className="flex flex-col gap-2">
             <div className="self-end">
-                <Button className="bg-paw">Add Pet</Button>
+                <AddPetBtn />
             </div>
             <Table className="">
                 <TableCaption>A list of your recent Pets.</TableCaption>
-                <TableHeader>
-                    <TableRow className="bg-paw hover:text-primary">
-                        <TableHead className="w-[100px] text-white rounded-tl-lg">
+                <TableHeader className="hover:text-primary">
+                    <TableRow className="bg-primary ">
+                        <TableHead className="w-[100px] text-white rounded-tl-lg hover:text-primary">
                             Name
                         </TableHead>
-                        <TableHead className="text-white">Birth Date</TableHead>
-                        <TableHead className="text-white">Pet Type</TableHead>
-                        <TableHead className="text-right text-white rounded-tr-lg">
+                        <TableHead className="text-white hover:text-primary">
+                            Birth Date
+                        </TableHead>
+                        <TableHead className="text-white hover:text-primary">
+                            Pet Type
+                        </TableHead>
+                        <TableHead className="text-right text-white rounded-tr-lg hover:text-primary">
                             Action
                         </TableHead>
                     </TableRow>
