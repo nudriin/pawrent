@@ -19,7 +19,7 @@ export default function Header() {
                     Service
                 </li>
                 <li className="">
-                    <Button className="cursor-pointer rounded-full backdrop-blur-sm bg-white/10 text-primary hover:text-white">
+                    <Button className="cursor-pointer rounded-full backdrop-blur-sm ring ring-paw bg-white/10 text-primary hover:text-white">
                         Login
                     </Button>
                 </li>

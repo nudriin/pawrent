@@ -18,15 +18,15 @@ export default function Hero() {
             </Button>
             <img
                 src={dog}
-                width={600}
+                width={900}
                 alt="Dog"
-                className="absolute left-[-90px] bottom-[-50px] opacity-30"
+                className="absolute left-[-160px] bottom-[-50px] opacity-30"
             />
             <img
                 src={cat2}
-                width={550}
+                width={700}
                 alt="Cat"
-                className="absolute right-[-70px] top-[20px] opacity-30"
+                className="absolute right-[-60px] top-[5px] opacity-30"
             />
         </div>
     )
