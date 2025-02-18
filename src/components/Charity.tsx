@@ -1,8 +1,8 @@
 export default function Charity() {
     return (
-        <div className="text-white px-6 py-4 bg-paw">
+        <div className="text-white px-16 py-8 bg-paw">
             <div className="">
-                <h1 className="text-2xl font-medium mb-10 mt-4">
+                <h1 className="text-4xl w-1/3 font-medium mb-10">
                     We collaborate with charities around the world
                 </h1>
                 <div className="grid grid-cols-4 gap-4">
