@@ -4,14 +4,59 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
+import React, { useState } from "react"
+import { useCookies } from "react-cookie"
+import { useNavigate } from "react-router-dom"
+
+interface UpdateRequest {
+    id_pawrent?: string
+    nama_lengkap_pawrent?: string
+    no_telepon_pawrent?: string
+}
 
 export default function Profile() {
+    const [cookies, setCookie] = useCookies(["auth"])
+    const auth = cookies.auth
+    const [formData, setFormData] = useState<UpdateRequest | undefined>(auth)
+
+    const navigate = useNavigate()
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            id_pawrent: auth.id_pawrent,
+            [e.target.id]: e.target.value,
+        })
+        console.log(formData)
+    }
+
+    const handleUpdate = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault()
+        try {
+            const response = await fetch("/api/pawrent", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            })
+
+            const body = await response.json()
+
+            setCookie("auth", body.data)
+            console.log(body)
+
+            navigate(0)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className="flex items-center justify-between min-h-screen">
             <Card className="w-[430px] shadow-2xl mx-auto px-2 pb-3">
@@ -34,19 +79,39 @@ export default function Profile() {
                     <form>
                         <div className="grid w-full items-center gap-4">
                             <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="name">Name</Label>
-                                <Input id="name" placeholder="John Doe" />
+                                <Label htmlFor="nama_lengkap_pawrent">
+                                    Name
+                                </Label>
+                                <Input
+                                    id="nama_lengkap_pawrent"
+                                    placeholder="John Doe"
+                                    defaultValue={auth?.nama_lengkap_pawrent}
+                                    onChange={handleChange}
+                                />
                             </div>
                             <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="phone">Phone</Label>
-                                <Input id="phone" placeholder="0829110****" />
+                                <Label htmlFor="no_telepon_pawrent">
+                                    Phone
+                                </Label>
+                                <Input
+                                    id="no_telepon_pawrent"
+                                    placeholder="0829110****"
+                                    defaultValue={auth.no_telepon_pawrent}
+                                    onChange={handleChange}
+                                />
                             </div>
+                        </div>
+                        <div className="flex w-full mt-4">
+                            <Button
+                                className="w-full"
+                                onClick={handleUpdate}
+                                type="submit"
+                            >
+                                Update
+                            </Button>
                         </div>
                     </form>
                 </CardContent>
-                <CardFooter className="flex w-full">
-                    <Button className="w-full">Update</Button>
-                </CardFooter>
             </Card>
         </div>
     )
