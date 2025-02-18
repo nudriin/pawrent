@@ -3,7 +3,10 @@ import cat2 from "../assets/cat2.png"
 import { Button } from "./ui/button"
 export default function Hero() {
     return (
-        <div className="min-h-screen flex items-center justify-center text-primary max-h-screen flex-col relative overflow-hidden ">
+        <div
+            id="home"
+            className="min-h-screen flex items-center justify-center text-primary max-h-screen flex-col relative overflow-hidden "
+        >
             <h1 className="text-7xl font-bold mb-3 w-2/4 text-center">
                 Pawrent.
             </h1>

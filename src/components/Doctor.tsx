@@ -2,7 +2,7 @@ import veterian from "../assets/veterinarian-taking-care-dog.jpg"
 import { Button } from "./ui/button"
 export default function Doctor() {
     return (
-        <div className="px-16 py-8">
+        <div id="doctor" className="px-16 py-8">
             <h1 className="text-4xl w-1/3 font-medium mb-10 mt-4">
                 Our doctors provide a wide range of services, from routine
                 check-ups

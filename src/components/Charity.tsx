@@ -1,6 +1,6 @@
 export default function Charity() {
     return (
-        <div className="text-white px-16 py-8 bg-paw">
+        <div id="charity" className="text-white px-16 py-8 bg-paw">
             <div className="">
                 <h1 className="text-4xl w-1/3 font-medium mb-10">
                     We collaborate with charities around the world
