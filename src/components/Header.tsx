@@ -31,15 +31,22 @@ export default function Header() {
                     </li>
                 </HashLink>
                 {auth?.id_pawrent ? (
-                    <Link to="/profile">
-                        <Avatar className="mx-auto w-8 h-8">
-                            <AvatarImage
-                                src="https://avatars.githubusercontent.com/u/145898263?v=4"
-                                alt="@shadcn"
-                            />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                    </Link>
+                    <div className="flex gap-2">
+                        <Link to="/pet">
+                            <li className="flex items-center gap-3 px-3 py-2 font-bold font-rubik hover:bg-paw hover:text-white hover:rounded-full cursor-pointer">
+                                Pet
+                            </li>
+                        </Link>
+                        <Link to="/profile">
+                            <Avatar className="mx-auto w-8 h-8">
+                                <AvatarImage
+                                    src="https://avatars.githubusercontent.com/u/145898263?v=4"
+                                    alt="@shadcn"
+                                />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+                        </Link>
+                    </div>
                 ) : (
                     <div className="flex gap-2">
                         <Link to="/login">
