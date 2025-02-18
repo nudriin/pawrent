@@ -3,6 +3,7 @@ import {
     Card,
     CardContent,
     CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -10,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useCookies } from "react-cookie"
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 interface LoginRequest {
@@ -60,9 +62,9 @@ export function Login() {
         <div className="flex items-center justify-center flex-col min-h-screen max-h-screen">
             <Card className="w-[350px] shadow-2xl">
                 <CardHeader>
-                    <CardTitle>Login</CardTitle>
+                    <CardTitle className="text-4xl font-bold">Login</CardTitle>
                     <CardDescription>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Hello welcome back to Pawrent.
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -101,6 +103,15 @@ export function Login() {
                         </div>
                     </form>
                 </CardContent>
+                <CardFooter>
+                    <p className="text-muted-foreground">
+                        Don't have accout?{" "}
+                        <Link to="/register" className="text-paw">
+                            {" "}
+                            Register
+                        </Link>
+                    </p>
+                </CardFooter>
             </Card>
         </div>
     )

@@ -3,13 +3,14 @@ import {
     Card,
     CardContent,
     CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export function Register() {
     const [formData, setFormData] = useState({})
@@ -48,10 +49,10 @@ export function Register() {
         <div className="flex items-center justify-center flex-col min-h-screen max-h-screen">
             <Card className="w-[350px] shadow-2xl">
                 <CardHeader>
-                    <CardTitle>Register</CardTitle>
-                    <CardDescription>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </CardDescription>
+                    <CardTitle className="text-4xl font-bold">
+                        Register
+                    </CardTitle>
+                    <CardDescription>Hello welcome to Pawrent.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form>
@@ -97,6 +98,15 @@ export function Register() {
                         </div>
                     </form>
                 </CardContent>
+                <CardFooter>
+                    <p className="text-muted-foreground">
+                        Have an accout?{" "}
+                        <Link to="/login" className="text-paw">
+                            {" "}
+                            Login
+                        </Link>
+                    </p>
+                </CardFooter>
             </Card>
         </div>
     )

@@ -1,6 +1,7 @@
 import dog from "../assets/dog.png"
 import cat2 from "../assets/cat2.png"
 import { Button } from "./ui/button"
+import { Link } from "react-router-dom"
 export default function Hero() {
     return (
         <div
@@ -13,12 +14,14 @@ export default function Hero() {
             <h1 className="text-xl font-medium mb-5 w-2/4 text-center">
                 Private vet clinic management solutions
             </h1>
-            <Button
-                className="cursor-pointer py-5 rounded-full ring ring-paw hover:text-primary"
-                variant={"ghost"}
-            >
-                Get Started
-            </Button>
+            <Link to="/pet">
+                <Button
+                    className="cursor-pointer py-5 rounded-full ring ring-paw hover:text-primary"
+                    variant={"ghost"}
+                >
+                    Get Started
+                </Button>
+            </Link>
             <img
                 src={dog}
                 width={900}
