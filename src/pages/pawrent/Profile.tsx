@@ -144,7 +144,7 @@ export default function Profile() {
                             </div>
                             <div className="flex w-full mt-4">
                                 <Button
-                                    className="w-full"
+                                    className="w-full rounded-full cursor-pointer"
                                     onClick={handleUpdate}
                                     type="submit"
                                 >
@@ -156,10 +156,10 @@ export default function Profile() {
                             <AlertDialog>
                                 <AlertDialogTrigger asChild>
                                     <Button
-                                        className="w-full"
+                                        className="w-full rounded-full cursor-pointer"
                                         variant={"destructive"}
                                     >
-                                        Delete
+                                        Delete Account
                                     </Button>
                                 </AlertDialogTrigger>
                                 <AlertDialogContent>
@@ -175,12 +175,13 @@ export default function Profile() {
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
-                                        <AlertDialogCancel>
+                                        <AlertDialogCancel className="rounded-full cursor-pointer">
                                             Cancel
                                         </AlertDialogCancel>
                                         <AlertDialogAction
                                             onClick={handleDelete}
                                             type="submit"
+                                            className="rounded-full cursor-pointer"
                                         >
                                             Continue
                                         </AlertDialogAction>

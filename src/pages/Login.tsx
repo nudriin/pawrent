@@ -94,7 +94,7 @@ export function Login() {
                             <Button
                                 type="submit"
                                 onClick={handleLogin}
-                                className="w-full"
+                                className="w-full rounded-full cursor-pointer"
                             >
                                 Login
                             </Button>

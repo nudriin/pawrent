@@ -90,7 +90,7 @@ export function Register() {
                             <Button
                                 type="submit"
                                 onClick={handleRegister}
-                                className="w-full"
+                                className="w-full rounded-full cursor-pointer"
                             >
                                 Register
                             </Button>

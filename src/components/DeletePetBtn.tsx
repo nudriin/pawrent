@@ -39,7 +39,12 @@ export default function DeletePetBtn({ petId }: { petId: string }) {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant={"destructive"}>Delete</Button>
+                <Button
+                    className="rounded-full cursor-pointer"
+                    variant={"destructive"}
+                >
+                    Delete
+                </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
@@ -53,8 +58,14 @@ export default function DeletePetBtn({ petId }: { petId: string }) {
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleDelete} type="submit">
+                    <AlertDialogCancel className="rounded-full cursor-pointer">
+                        Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                        className="rounded-full cursor-pointer"
+                        onClick={handleDelete}
+                        type="submit"
+                    >
                         Continue
                     </AlertDialogAction>
                 </AlertDialogFooter>

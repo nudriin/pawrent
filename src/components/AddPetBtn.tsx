@@ -60,7 +60,7 @@ export default function AddPetBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 rounded-lg group hover:border-primary hover:cursor-pointer text-secondary">
+                <Button className="flex items-center justify-center h-full gap-2 group hover:border-primary hover:cursor-pointer text-secondary rounded-full">
                     <p className="font-semibold">Add Pet</p>
                 </Button>
             </DialogTrigger>
@@ -109,7 +109,7 @@ export default function AddPetBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-secondary"
+                        className="w-full text-secondary rounded-full cursor-pointer"
                         type="submit"
                     >
                         Save
