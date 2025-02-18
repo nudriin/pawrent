@@ -4,14 +4,17 @@ import { Register } from "./pages/Register"
 import Profile from "./pages/pawrent/Profile"
 import { Login } from "./pages/Login"
 import PrivateRoute from "./components/PrivateRoute"
+import SignRoute from "./components/SignRoute"
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route element={<Home />} path="/" />
-                <Route element={<Register />} path="/register" />
-                <Route element={<Login />} path="/login" />
+                <Route element={<SignRoute />}>
+                    <Route element={<Register />} path="/register" />
+                    <Route element={<Login />} path="/login" />
+                </Route>
                 <Route element={<PrivateRoute />}>
                     <Route element={<Profile />} path="/profile" />
                 </Route>
