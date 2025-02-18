@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table"
 import { Button } from "./ui/button"
 import AddPetBtn from "./AddPetBtn"
+import DeletePetBtn from "./DeletePetBtn"
 
 export default function PetTables({ pets }: { pets: Pet[] }) {
     return (
@@ -45,7 +46,7 @@ export default function PetTables({ pets }: { pets: Pet[] }) {
                             <TableCell>{pet.jenis_hewan}</TableCell>
                             <TableCell className="space-x-2 text-right rounded-br-lg">
                                 <Button>Edit</Button>
-                                <Button variant={"destructive"}>Delete</Button>
+                                <DeletePetBtn petId={pet.id_hewan} />
                             </TableCell>
                         </TableRow>
                     ))}
