@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 
 export default function Header() {
@@ -22,11 +23,13 @@ export default function Header() {
                         Login
                     </Button>
                 </li>
-                <li className="">
-                    <Button className="cursor-pointer rounded-full bg-paw">
-                        Register
-                    </Button>
-                </li>
+                <Link to="/register">
+                    <li className="">
+                        <Button className="cursor-pointer rounded-full bg-paw">
+                            Register
+                        </Button>
+                    </li>
+                </Link>
             </ul>
         </div>
     )
