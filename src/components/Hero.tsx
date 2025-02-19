@@ -33,16 +33,14 @@ export default function Hero() {
             >
                 Private vet clinic management solutions
             </motion.h1>
-            <Link to="/pet">
+            <Link to="/pet" className="cursor-pointer">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                 >
                     <Button
-                        className="cursor-pointer py-5 rounded-full ring ring-paw hover:text-primary"
+                        className="py-5 z-10 rounded-full ring ring-paw hover:text-primary"
                         variant={"ghost"}
                     >
                         Get Started
@@ -60,7 +58,7 @@ export default function Hero() {
                 src={dog}
                 width={900}
                 alt="Dog"
-                className="absolute left-[-160px] bottom-[-50px]"
+                className="absolute left-[-90px] bottom-[-90px]"
                 style={{ opacity: 0.3 }}
             />
             <motion.img
@@ -74,7 +72,7 @@ export default function Hero() {
                 src={cat2}
                 width={700}
                 alt="Cat"
-                className="absolute right-[-60px] top-[5px]"
+                className="absolute right-[-180px] top-[5px]"
                 style={{ opacity: 0.3 }}
             />
         </div>
