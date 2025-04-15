@@ -98,12 +98,12 @@ export default function AnimalTables({ animals }: { animals: Animal[] }) {
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
                                         {/* <EditPetBtn animal={animal} />
                                         <DeletePetBtn petId={animal.id_hewan} /> */}
-                                        <DeleteAnimalBtn
-                                            animalId={animal.animal_id}
-                                        />
                                         <Button className="text-white bg-slate-900 hover:bg-slate-800">
                                             Edit
                                         </Button>
+                                        <DeleteAnimalBtn
+                                            animalId={animal.animal_id}
+                                        />
                                     </TableCell>
                                 </motion.tr>
                             ))}

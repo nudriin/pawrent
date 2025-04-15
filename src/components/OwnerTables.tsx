@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Owner } from "@/types/owner"
 import { Button } from "./ui/button"
 import AddOwnerBtn from "./AddOwnerBtn"
+import DeleteOwnerBtn from "./DeleteOwnerBtn"
 
 export default function OwnerTables({ owners }: { owners: Owner[] }) {
     const containerVariants = {
@@ -100,12 +101,9 @@ export default function OwnerTables({ owners }: { owners: Owner[] }) {
                                         <Button className="text-white bg-slate-900 hover:bg-slate-800">
                                             Edit
                                         </Button>
-                                        <Button
-                                            variant={"destructive"}
-                                            className="text-white bg-red-500 hover:bg-red-600"
-                                        >
-                                            Delete
-                                        </Button>
+                                        <DeleteOwnerBtn
+                                            ownerId={owner.owner_id}
+                                        />
                                     </TableCell>
                                 </motion.tr>
                             ))}
