@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Animal } from "@/types/animal"
 import { Button } from "./ui/button"
 import AddAnimalBtn from "./AddAnimalBtn"
+import DeleteAnimalBtn from "./DeleteAnimalBtn"
 
 export default function AnimalTables({ animals }: { animals: Animal[] }) {
     const containerVariants = {
@@ -97,14 +98,11 @@ export default function AnimalTables({ animals }: { animals: Animal[] }) {
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
                                         {/* <EditPetBtn animal={animal} />
                                         <DeletePetBtn petId={animal.id_hewan} /> */}
+                                        <DeleteAnimalBtn
+                                            animalId={animal.animal_id}
+                                        />
                                         <Button className="text-white bg-slate-900 hover:bg-slate-800">
                                             Edit
-                                        </Button>
-                                        <Button
-                                            variant={"destructive"}
-                                            className="text-white bg-red-500 hover:bg-red-600"
-                                        >
-                                            Delete
                                         </Button>
                                     </TableCell>
                                 </motion.tr>
