@@ -11,6 +11,7 @@ import { AdminLogin } from "./pages/AdminLogin"
 import PrivateRouteAdmin from "./components/PrivateRouteAdmin"
 import Animal from "./pages/pet/Animal"
 import Owner from "./pages/pet/Owner"
+import Visit from "./pages/pet/Visit"
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                     <Route element={<DashboardHome />} path="/dashboard" />
                     <Route element={<Animal />} path="/dashboard/animals" />
                     <Route element={<Owner />} path="/dashboard/owners" />
+                    <Route element={<Visit />} path="/dashboard/visits" />
                 </Route>
 
                 <Route element={<SignRoute />}>
