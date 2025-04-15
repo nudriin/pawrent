@@ -7,11 +7,12 @@ import PrivateRoute from "./components/PrivateRoute"
 import SignRoute from "./components/SignRoute"
 import Pet from "./pages/pet/Pet"
 import DashboardHome from "./pages/admin/DashboardHome"
-import { AdminLogin } from "./pages/AdminLogin"
+import { AdminLogin } from "./pages/admin/AdminLogin"
 import PrivateRouteAdmin from "./components/PrivateRouteAdmin"
 import Animal from "./pages/pet/Animal"
 import Owner from "./pages/pet/Owner"
 import Visit from "./pages/pet/Visit"
+import { OwnerLogin } from "./pages/owner/OwnerLogin"
 
 function App() {
     return (
@@ -38,6 +39,8 @@ function App() {
                 <Route element={<SignRoute />}>
                     <Route element={<AdminLogin />} path="/auth" />
                 </Route>
+
+                <Route element={<OwnerLogin />} path="/auth/owner" />
             </Routes>
         </BrowserRouter>
     )
