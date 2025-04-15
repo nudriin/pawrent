@@ -142,7 +142,7 @@ export default function Doctor() {
             variants={containerVariants}
         >
             <motion.h1
-                className="text-4xl w-1/3 font-medium mb-10 mt-4 text-primary"
+                className="text-4xl w-1/3 font-medium mb-10 mt-4 text-slate-900"
                 variants={headingVariants}
             >
                 Our doctors provide a wide range of services, from routine

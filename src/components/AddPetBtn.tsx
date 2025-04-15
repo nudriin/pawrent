@@ -60,11 +60,11 @@ export default function AddPetBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 group hover:border-primary hover:cursor-pointer text-secondary rounded-full">
+                <Button className="flex bg-slate-900 text-white items-center justify-center h-full gap-2 group hover:border-slate-900 hover:cursor-pointer text-white rounded-full">
                     <p className="font-semibold">Add Pet</p>
                 </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="bg-white text-slate-900">
                 <DialogHeader className="text-left">
                     <DialogTitle className="text-2xl font-semibold">
                         Add Pet
@@ -82,6 +82,7 @@ export default function AddPetBtn() {
                                 onChange={handleChange}
                                 id="nama_hewan"
                                 placeholder="Chiko"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -93,6 +94,7 @@ export default function AddPetBtn() {
                                 id="tahun_lahir_hewan"
                                 placeholder="2025"
                                 type="text"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -102,6 +104,7 @@ export default function AddPetBtn() {
                                 id="jenis_hewan"
                                 placeholder="Duelist"
                                 type="text"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                     </div>
@@ -109,7 +112,7 @@ export default function AddPetBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-secondary rounded-full cursor-pointer"
+                        className="w-full text-white rounded-full cursor-pointer bg-slate-900"
                         type="submit"
                     >
                         Save

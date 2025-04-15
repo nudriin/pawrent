@@ -35,7 +35,7 @@ export default function Pet() {
     return (
         <div>
             <Header />
-            <div className="h-full mt-40">
+            <div className="h-full pt-40">
                 <div className="w-1/2 h-full mx-auto overflow-hidden">
                     <PetTables pets={pets} />
                 </div>

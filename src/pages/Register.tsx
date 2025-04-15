@@ -94,7 +94,7 @@ export function Register() {
 
     return (
         <motion.div
-            className="flex items-center justify-center flex-col min-h-screen max-h-screen"
+            className="flex items-center justify-center flex-col min-h-screen max-h-screen text-slate-900"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -132,6 +132,7 @@ export function Register() {
                                         onChange={handleChange}
                                         id="nama_lengkap_pawrent"
                                         placeholder="John Doe"
+                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5">
@@ -143,6 +144,7 @@ export function Register() {
                                         id="no_telepon_pawrent"
                                         placeholder="0829110****"
                                         type="tel"
+                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5">
@@ -151,6 +153,7 @@ export function Register() {
                                         id="password"
                                         placeholder="*****"
                                         type="password"
+                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
                                     />
                                 </div>
                             </motion.div>
@@ -162,7 +165,7 @@ export function Register() {
                                 <Button
                                     type="submit"
                                     onClick={handleRegister}
-                                    className="w-full rounded-full cursor-pointer"
+                                    className="w-full rounded-full cursor-pointer bg-slate-900 text-white"
                                 >
                                     Register
                                 </Button>
@@ -172,7 +175,7 @@ export function Register() {
                     <CardFooter>
                         <motion.p
                             variants={footerVariants}
-                            className="text-muted-foreground"
+                            className="text-slate-500"
                         >
                             Have an account?{" "}
                             <Link to="/login" className="text-paw">

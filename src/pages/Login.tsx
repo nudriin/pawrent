@@ -98,7 +98,7 @@ export function Login() {
 
     return (
         <motion.div
-            className="flex items-center justify-center flex-col min-h-screen max-h-screen"
+            className="flex items-center justify-center flex-col min-h-screen max-h-screen text-secondary text-slate-900"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -137,6 +137,7 @@ export function Login() {
                                         id="no_telepon_pawrent"
                                         placeholder="0829110****"
                                         type="tel"
+                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5">
@@ -147,6 +148,7 @@ export function Login() {
                                         id="nama_lengkap_pawrent"
                                         placeholder="*****"
                                         type="password"
+                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
                                     />
                                 </div>
                             </motion.div>
@@ -157,7 +159,7 @@ export function Login() {
                                 <Button
                                     type="submit"
                                     onClick={handleLogin}
-                                    className="w-full rounded-full cursor-pointer"
+                                    className="w-full rounded-full cursor-pointer bg-slate-900 text-white"
                                 >
                                     Login
                                 </Button>
@@ -167,7 +169,7 @@ export function Login() {
                     <CardFooter>
                         <motion.p
                             variants={footerVariants}
-                            className="text-muted-foreground"
+                            className="text-slate-500"
                         >
                             Don't have accout?{" "}
                             <Link to="/register" className="text-paw">

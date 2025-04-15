@@ -40,7 +40,7 @@ export default function Hero() {
                     transition={{ delay: 0.6, duration: 0.5 }}
                 >
                     <Button
-                        className="py-5 z-10 rounded-full ring ring-paw hover:text-primary text-paw"
+                        className="py-5 z-10 rounded-full border border-paw hover:text-primary text-paw"
                         variant={"ghost"}
                     >
                         Get Started

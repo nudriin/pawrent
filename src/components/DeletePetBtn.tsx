@@ -40,13 +40,13 @@ export default function DeletePetBtn({ petId }: { petId: string }) {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button
-                    className="rounded-full cursor-pointer"
+                    className="rounded-full cursor-pointer bg-red-500 text-white"
                     variant={"destructive"}
                 >
                     Delete
                 </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className="bg-white text-slate-900">
                 <AlertDialogHeader>
                     <AlertDialogTitle>
                         Are you absolutely sure?
@@ -58,11 +58,11 @@ export default function DeletePetBtn({ petId }: { petId: string }) {
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel className="rounded-full cursor-pointer">
+                    <AlertDialogCancel className="rounded-full cursor-pointer bg-slate-900 text-white">
                         Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction
-                        className="rounded-full cursor-pointer"
+                        className="rounded-full cursor-pointer bg-red-500 text-white hover:bg-slate-700"
                         onClick={handleDelete}
                         type="submit"
                     >
