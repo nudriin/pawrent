@@ -10,17 +10,17 @@ export default function AdminSidebar() {
                     </div>
                 </NavLink>
                 <ul className="space-y-4 text-left">
-                    <NavLink to="/dashboard/animal">
+                    <NavLink to="/dashboard/animals">
                         <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
                             Animal
                         </li>
                     </NavLink>
-                    <NavLink to="/dashboard/owner">
+                    <NavLink to="/dashboard/owners">
                         <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
                             Owner
                         </li>
                     </NavLink>
-                    <NavLink to="/dashboard/visit">
+                    <NavLink to="/dashboard/visits">
                         <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
                             Visit
                         </li>
