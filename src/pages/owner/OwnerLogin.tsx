@@ -52,7 +52,7 @@ export function OwnerLogin() {
 
             console.log(body)
 
-            setCookie("owner_auth", JSON.stringify(body.data))
+            setCookie("owner_auth", JSON.stringify(body.data[0]))
 
             navigate("/owner")
         } catch (error) {

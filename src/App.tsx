@@ -9,10 +9,14 @@ import Pet from "./pages/pet/Pet"
 import DashboardHome from "./pages/admin/DashboardHome"
 import { AdminLogin } from "./pages/admin/AdminLogin"
 import PrivateRouteAdmin from "./components/PrivateRouteAdmin"
-import Animal from "./pages/pet/Animal"
-import Owner from "./pages/pet/Owner"
-import Visit from "./pages/pet/Visit"
+import Animal from "./pages/admin/Animal"
+import Owner from "./pages/admin/Owner"
+import Visit from "./pages/admin/Visit"
 import { OwnerLogin } from "./pages/owner/OwnerLogin"
+import SignRouteAdmin from "./components/SignRouteAdmin"
+import SignRouteOwner from "./components/SignRouteOwner"
+import PrivateRouteOwner from "./components/PrivateRouteOwner"
+import OwnerAnimal from "./pages/owner/OwnerAnimal"
 
 function App() {
     return (
@@ -36,11 +40,17 @@ function App() {
                     <Route element={<Visit />} path="/dashboard/visits" />
                 </Route>
 
-                <Route element={<SignRoute />}>
+                <Route element={<SignRouteAdmin />}>
                     <Route element={<AdminLogin />} path="/auth" />
                 </Route>
 
-                <Route element={<OwnerLogin />} path="/auth/owner" />
+                <Route element={<SignRouteOwner />}>
+                    <Route element={<OwnerLogin />} path="/auth/owner" />
+                </Route>
+
+                <Route element={<PrivateRouteOwner />}>
+                    <Route element={<OwnerAnimal />} path="/owner" />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
