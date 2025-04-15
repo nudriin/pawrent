@@ -3,13 +3,14 @@ import Doctor from "@/components/Doctor"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
+import ThreeHero from "@/components/ThreeHero"
 import { motion, useScroll } from "motion/react"
 export default function Home() {
     const { scrollYProgress } = useScroll()
     return (
         <>
             <motion.div
-                className="max-w-screen"
+                className="max-w-screen bg-white"
                 id="scroll-indicator"
                 style={{
                     scaleX: scrollYProgress,
@@ -25,6 +26,7 @@ export default function Home() {
 
             <Header />
             <Hero />
+            <ThreeHero />
             <Charity />
             <Doctor />
             <Footer />

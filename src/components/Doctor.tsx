@@ -136,14 +136,13 @@ export default function Doctor() {
     return (
         <motion.div
             id="doctor"
-            className="px-16 py-8"
-            initial="hidden"
+            className="px-16 py-8 bg-white"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={containerVariants}
         >
             <motion.h1
-                className="text-4xl w-1/3 font-medium mb-10 mt-4"
+                className="text-4xl w-1/3 font-medium mb-10 mt-4 text-slate-900"
                 variants={headingVariants}
             >
                 Our doctors provide a wide range of services, from routine

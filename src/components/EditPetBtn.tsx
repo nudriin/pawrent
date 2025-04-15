@@ -53,14 +53,14 @@ export default function EditPetBtn({ pet }: { pet: Pet }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="cursor-pointer rounded-full">
+                <Button className="cursor-pointer rounded-full bg-slate-900 text-white">
                     <p className="font-semibold">Edit</p>
                 </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="bg-white text-slate-900">
                 <DialogHeader className="text-left">
                     <DialogTitle className="text-2xl font-semibold">
-                        Add Pet
+                        Edit Pet
                     </DialogTitle>
                     <DialogDescription>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -76,6 +76,7 @@ export default function EditPetBtn({ pet }: { pet: Pet }) {
                                 id="nama_hewan"
                                 placeholder="Chiko"
                                 defaultValue={pet.nama_hewan}
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -87,6 +88,7 @@ export default function EditPetBtn({ pet }: { pet: Pet }) {
                                 id="tahun_lahir_hewan"
                                 placeholder="2025"
                                 type="text"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                                 defaultValue={pet.tahun_lahir_hewan}
                             />
                         </div>
@@ -97,6 +99,7 @@ export default function EditPetBtn({ pet }: { pet: Pet }) {
                                 id="jenis_hewan"
                                 placeholder="Duelist"
                                 type="text"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
                                 defaultValue={pet.jenis_hewan}
                             />
                         </div>
@@ -105,7 +108,7 @@ export default function EditPetBtn({ pet }: { pet: Pet }) {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-secondary cursor-pointer rounded-full"
+                        className="w-full text-secondary cursor-pointer rounded-full bg-slate-900 text-white"
                         type="submit"
                     >
                         Edit

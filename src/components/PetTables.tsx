@@ -45,7 +45,7 @@ export default function PetTables({ pets }: { pets: Pet[] }) {
             <div className="self-end">
                 <AddPetBtn />
             </div>
-            <div className="w-full min-h-[200px] overflow-hidden">
+            <div className="w-full min-h-[200px] overflow-hidden text-slate-900">
                 <Table className="w-full">
                     <TableCaption>
                         <motion.div
@@ -57,7 +57,7 @@ export default function PetTables({ pets }: { pets: Pet[] }) {
                         </motion.div>
                     </TableCaption>
                     <TableHeader>
-                        <tr className="bg-primary py-4">
+                        <tr className="bg-slate-900 py-4">
                             <th className="w-[100px] text-white rounded-tl-lg py-2">
                                 Name
                             </th>

@@ -131,10 +131,10 @@ export default function Profile() {
     }
 
     return (
-        <div className="max-h-screen">
+        <div className="h-full min-h-screen pb-64">
             <Header />
             <motion.div
-                className="flex items-center justify-center min-h-screen lg:mt-20"
+                className="flex items-center justify-center h-full pt-64 text-slate-900"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -176,6 +176,7 @@ export default function Profile() {
                                             Name
                                         </Label>
                                         <Input
+                                            className="text-slate-900 placeholder:text-lsate-500"
                                             id="nama_lengkap_pawrent"
                                             placeholder="John Doe"
                                             defaultValue={
@@ -189,6 +190,7 @@ export default function Profile() {
                                             Phone
                                         </Label>
                                         <Input
+                                            className="text-slate-900 placeholder:text-lsate-500"
                                             id="no_telepon_pawrent"
                                             placeholder="0829110****"
                                             defaultValue={
@@ -203,7 +205,7 @@ export default function Profile() {
                                     className="flex w-full mt-4"
                                 >
                                     <Button
-                                        className="w-full rounded-full cursor-pointer"
+                                        className="w-full rounded-full cursor-pointer text-white bg-slate-900 hover:bg-slate-700"
                                         onClick={handleUpdate}
                                         type="submit"
                                     >
@@ -218,13 +220,13 @@ export default function Profile() {
                                 <AlertDialog>
                                     <AlertDialogTrigger asChild>
                                         <Button
-                                            className="w-full rounded-full cursor-pointer"
+                                            className="w-full rounded-full cursor-pointer text-white bg-red-500 hover:bg-slate-700"
                                             variant={"destructive"}
                                         >
                                             Delete Account
                                         </Button>
                                     </AlertDialogTrigger>
-                                    <AlertDialogContent>
+                                    <AlertDialogContent className="bg-white text-slate-900">
                                         <AlertDialogHeader>
                                             <AlertDialogTitle>
                                                 Are you absolutely sure?
@@ -237,13 +239,13 @@ export default function Profile() {
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel className="rounded-full cursor-pointer">
+                                            <AlertDialogCancel className="rounded-full cursor-pointer bg-slate-900 text-white">
                                                 Cancel
                                             </AlertDialogCancel>
                                             <AlertDialogAction
                                                 onClick={handleDelete}
                                                 type="submit"
-                                                className="rounded-full cursor-pointer"
+                                                className="rounded-full cursor-pointer bg-red-500 text-white hover:bg-slate-700"
                                             >
                                                 Continue
                                             </AlertDialogAction>

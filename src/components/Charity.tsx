@@ -1,4 +1,3 @@
-import React from "react"
 import { motion } from "framer-motion"
 
 export default function Charity() {
@@ -52,7 +51,6 @@ export default function Charity() {
         <motion.div
             id="charity"
             className="text-white px-16 py-8 bg-paw"
-            initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={containerVariants}

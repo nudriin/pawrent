@@ -8,7 +8,7 @@ export default function Hero() {
     return (
         <div
             id="home"
-            className="min-h-screen flex items-center justify-center text-primary max-h-screen flex-col relative overflow-hidden"
+            className="z-10 absolute min-h-screen flex items-center justify-center text-primary max-h-screen flex-col overflow-hidden w-full"
         >
             <motion.h1
                 initial={{ opacity: 0, scale: 0 }}
@@ -17,7 +17,7 @@ export default function Hero() {
                     duration: 0.6,
                     scale: { type: "spring", stiffness: 100, damping: 10 },
                 }}
-                className="text-7xl font-bold mb-3 w-2/4 text-center"
+                className="text-7xl font-bold mb-3 w-2/4 text-center text-paw"
             >
                 Pawrent.
             </motion.h1>
@@ -29,54 +29,24 @@ export default function Hero() {
                     duration: 0.5,
                     y: { type: "spring", stiffness: 80 },
                 }}
-                className="text-xl font-medium mb-5 w-2/4 text-center"
+                className="text-xl font-medium mb-5 w-2/4 text-center text-paw"
             >
                 Private vet clinic management solutions
             </motion.h1>
-            <Link to="/pet">
+            <Link to="/pet" className="cursor-pointer">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                 >
                     <Button
-                        className="cursor-pointer py-5 rounded-full ring ring-paw hover:text-primary"
+                        className="py-5 z-10 rounded-full border border-paw hover:text-primary text-paw"
                         variant={"ghost"}
                     >
                         Get Started
                     </Button>
                 </motion.div>
             </Link>
-            <motion.img
-                initial={{ x: -300, opacity: 0 }}
-                animate={{ x: -160, opacity: 0.3 }}
-                transition={{
-                    delay: 0.8,
-                    duration: 0.8,
-                    x: { type: "spring", stiffness: 60, damping: 14 },
-                }}
-                src={dog}
-                width={900}
-                alt="Dog"
-                className="absolute left-[-160px] bottom-[-50px]"
-                style={{ opacity: 0.3 }}
-            />
-            <motion.img
-                initial={{ x: 300, opacity: 0 }}
-                animate={{ x: -60, opacity: 0.3 }}
-                transition={{
-                    delay: 1,
-                    duration: 0.8,
-                    x: { type: "spring", stiffness: 60, damping: 14 },
-                }}
-                src={cat2}
-                width={700}
-                alt="Cat"
-                className="absolute right-[-60px] top-[5px]"
-                style={{ opacity: 0.3 }}
-            />
         </div>
     )
 }
