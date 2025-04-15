@@ -60,7 +60,7 @@ export default function AddPetBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex bg-slate-900 text-white items-center justify-center h-full gap-2 group hover:border-slate-900 hover:cursor-pointer text-white rounded-full">
+                <Button className="flex items-center justify-center h-full gap-2 text-white rounded-full bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
                     <p className="font-semibold">Add Pet</p>
                 </Button>
             </DialogTrigger>
@@ -75,7 +75,7 @@ export default function AddPetBtn() {
                     </DialogDescription>
                 </DialogHeader>
                 <form>
-                    <div className="grid w-full items-center gap-4">
+                    <div className="grid items-center w-full gap-4">
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="nama_hewan">Name</Label>
                             <Input

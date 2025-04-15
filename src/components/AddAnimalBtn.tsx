@@ -105,7 +105,7 @@ export default function AddAnimalBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 text-white rounded-full bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
+                <Button className="flex items-center justify-center h-full gap-2 text-white bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
                     <p className="font-semibold">Add Pet</p>
                 </Button>
             </DialogTrigger>
@@ -131,7 +131,9 @@ export default function AddAnimalBtn() {
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="animal_born">Birth Date (Y-M-D)</Label>
+                            <Label htmlFor="animal_born">
+                                Birth Date (Y-M-D)
+                            </Label>
                             <Input
                                 onChange={handleChange}
                                 id="animal_born"
@@ -183,7 +185,7 @@ export default function AddAnimalBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white rounded-full cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900"
                         type="submit"
                     >
                         Save

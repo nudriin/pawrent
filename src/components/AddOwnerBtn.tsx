@@ -59,7 +59,7 @@ export default function AddOwnerBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 text-white rounded-full bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
+                <Button className="flex items-center justify-center h-full gap-2 text-white bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
                     <p className="font-semibold">Add Owner</p>
                 </Button>
             </DialogTrigger>
@@ -119,7 +119,7 @@ export default function AddOwnerBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white rounded-full cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900"
                         type="submit"
                     >
                         Save
