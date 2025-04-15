@@ -31,7 +31,7 @@ export default function Visit() {
     }, [getAllVisits])
     return (
         <AdminDashboardLayout>
-            <div className="h-full pt-40">
+            <div className="h-full pt-10">
                 <div className="w-9/12 h-full mx-auto">
                     <VisitTables visits={visits} />
                 </div>

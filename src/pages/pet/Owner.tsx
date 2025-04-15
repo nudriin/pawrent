@@ -31,7 +31,7 @@ export default function Owner() {
     }, [getAllOwners])
     return (
         <AdminDashboardLayout>
-            <div className="h-full pt-40">
+            <div className="h-full pt-10">
                 <div className="w-9/12 h-full mx-auto">
                     <OwnerTables owners={owners} />
                 </div>

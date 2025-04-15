@@ -31,7 +31,7 @@ export default function Animal() {
     }, [getAllPets])
     return (
         <AdminDashboardLayout>
-            <div className="h-full pt-40">
+            <div className="h-full pt-10">
                 <div className="w-1/2 h-full mx-auto overflow-hidden">
                     <AnimalTables animals={animals} />
                 </div>
