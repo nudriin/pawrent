@@ -3,7 +3,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -11,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useCookies } from "react-cookie"
-import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
@@ -92,11 +90,6 @@ export function AdminLogin() {
     const formItemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-    }
-
-    const footerVariants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
     }
 
     return (
