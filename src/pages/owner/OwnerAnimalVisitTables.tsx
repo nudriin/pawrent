@@ -6,9 +6,13 @@ import {
     TableHeader,
 } from "@/components/ui/table"
 import { motion, AnimatePresence } from "framer-motion"
-import { Animal } from "@/types/animal"
+import { AnimalVisit } from "@/types/visit"
 
-export default function OwnerAnimalTables({ animals }: { animals: Animal[] }) {
+export default function OwnerAnimalVisitTables({
+    visits,
+}: {
+    visits: AnimalVisit[]
+}) {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -51,24 +55,25 @@ export default function OwnerAnimalTables({ animals }: { animals: Animal[] }) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.5 }}
                         >
-                            A list of your recent Pets.
+                            A list of your recent Animal Visit.
                         </motion.div>
                     </TableCaption>
                     <TableHeader>
                         <tr className="py-4 bg-slate-900">
                             <th className="w-[100px] text-white rounded-tl-lg py-2">
-                                Name
+                                Date
                             </th>
+                            <th className="w-[100px] text-white py-2">Notes</th>
                             <th className="px-6 py-2 text-right text-white rounded-tr-lg">
-                                Birth Date
+                                Animal
                             </th>
                         </tr>
                     </TableHeader>
                     <TableBody>
                         <AnimatePresence>
-                            {animals.map((animal, index) => (
+                            {visits.map((visit, index) => (
                                 <motion.tr
-                                    key={animal.animal_id}
+                                    key={visit.visit_id}
                                     custom={index}
                                     variants={rowVariants}
                                     initial="hidden"
@@ -77,10 +82,13 @@ export default function OwnerAnimalTables({ animals }: { animals: Animal[] }) {
                                     layout="position"
                                 >
                                     <TableCell className="font-medium rounded-bl-lg">
-                                        {animal.animal_name}
+                                        {extractDate(visit.visit_date_time)}
+                                    </TableCell>
+                                    <TableCell className="">
+                                        {visit.visit_notes}
                                     </TableCell>
                                     <TableCell className="px-6 text-right rounded-br-lg">
-                                        {extractDate(animal.animal_born)}
+                                        {visit?.animal?.animal_name}
                                     </TableCell>
                                 </motion.tr>
                             ))}

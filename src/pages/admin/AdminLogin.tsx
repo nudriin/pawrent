@@ -54,7 +54,7 @@ export function AdminLogin() {
 
             setCookie("admin_auth", JSON.stringify(body.data))
 
-            navigate("/dashboard")
+            navigate("/dashboard/animals")
         } catch (error) {
             console.log(error)
         }

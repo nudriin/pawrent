@@ -32,3 +32,15 @@ export interface Visit {
     visit_drug: VisitDrug[]
     animal: Animal
 }
+
+export interface AnimalVisit {
+    visit_id: number
+    visit_date_time: string // or Date if you'll convert it
+    visit_notes: string
+    animal_id: number
+    vet_id: number
+    from_visit_id: number | null
+    animal: {
+        animal_name: string
+    }
+}

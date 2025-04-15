@@ -24,3 +24,4 @@ export interface AnimalEditRequest {
     animal_name: string
     animal_born: string
 }
+
