@@ -5,12 +5,12 @@ import {
     TableCell,
     TableHeader,
 } from "@/components/ui/table"
-import AddPetBtn from "./AddPetBtn"
 // import DeletePetBtn from "./DeletePetBtn"
 // import EditPetBtn from "./EditPetBtn"
 import { motion, AnimatePresence } from "framer-motion"
 import { Animal } from "@/types/animal"
 import { Button } from "./ui/button"
+import AddAnimalBtn from "./AddAnimalBtn"
 
 export default function AnimalTables({ animals }: { animals: Animal[] }) {
     const containerVariants = {
@@ -48,7 +48,7 @@ export default function AnimalTables({ animals }: { animals: Animal[] }) {
             animate="visible"
         >
             <div className="self-end">
-                <AddPetBtn />
+                <AddAnimalBtn />
             </div>
             <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">

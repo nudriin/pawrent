@@ -11,3 +11,10 @@ export interface AnimalType {
     at_id: number
     at_description: string
 }
+
+export interface AnimalAddRequest {
+    animal_name: string
+    animal_born: string
+    owner_id: number
+    at_id: number
+}
