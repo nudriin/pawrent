@@ -6,6 +6,7 @@ import { Login } from "./pages/Login"
 import PrivateRoute from "./components/PrivateRoute"
 import SignRoute from "./components/SignRoute"
 import Pet from "./pages/pet/Pet"
+import DashboardHome from "./pages/admin/DashboardHome"
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route element={<PrivateRoute />}>
                     <Route element={<Profile />} path="/profile" />
                     <Route element={<Pet />} path="/pet" />
+                    <Route element={<DashboardHome />} path="/dashboard" />
                 </Route>
             </Routes>
         </BrowserRouter>
