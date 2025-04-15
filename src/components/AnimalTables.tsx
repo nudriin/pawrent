@@ -9,9 +9,9 @@ import {
 // import EditPetBtn from "./EditPetBtn"
 import { motion, AnimatePresence } from "framer-motion"
 import { Animal } from "@/types/animal"
-import { Button } from "./ui/button"
 import AddAnimalBtn from "./AddAnimalBtn"
 import DeleteAnimalBtn from "./DeleteAnimalBtn"
+import EditAnimalBtn from "./EditAnimalBtn"
 
 export default function AnimalTables({ animals }: { animals: Animal[] }) {
     const containerVariants = {
@@ -98,9 +98,15 @@ export default function AnimalTables({ animals }: { animals: Animal[] }) {
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
                                         {/* <EditPetBtn animal={animal} />
                                         <DeletePetBtn petId={animal.id_hewan} /> */}
-                                        <Button className="text-white bg-slate-900 hover:bg-slate-800">
-                                            Edit
-                                        </Button>
+                                        <EditAnimalBtn
+                                            animal={{
+                                                animal_id: animal.animal_id,
+                                                animal_name: animal.animal_name,
+                                                animal_born: extractDate(
+                                                    animal.animal_born
+                                                ),
+                                            }}
+                                        />
                                         <DeleteAnimalBtn
                                             animalId={animal.animal_id}
                                         />

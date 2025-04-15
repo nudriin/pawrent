@@ -18,3 +18,9 @@ export interface AnimalAddRequest {
     owner_id: number
     at_id: number
 }
+
+export interface AnimalEditRequest {
+    animal_id: number
+    animal_name: string
+    animal_born: string
+}
