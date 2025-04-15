@@ -5,3 +5,10 @@ export interface Owner {
     owner_address: string
     owner_phone: string
 }
+
+export interface OwnerAddRequest {
+    owner_givenname: string
+    owner_familyname: string
+    owner_address: string
+    owner_phone: string
+}

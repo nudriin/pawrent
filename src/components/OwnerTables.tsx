@@ -5,12 +5,12 @@ import {
     TableCell,
     TableHeader,
 } from "@/components/ui/table"
-import AddPetBtn from "./AddPetBtn"
 // import DeletePetBtn from "./DeletePetBtn"
 // import EditPetBtn from "./EditPetBtn"
 import { motion, AnimatePresence } from "framer-motion"
 import { Owner } from "@/types/owner"
 import { Button } from "./ui/button"
+import AddOwnerBtn from "./AddOwnerBtn"
 
 export default function OwnerTables({ owners }: { owners: Owner[] }) {
     const containerVariants = {
@@ -48,7 +48,7 @@ export default function OwnerTables({ owners }: { owners: Owner[] }) {
             animate="visible"
         >
             <div className="self-end">
-                <AddPetBtn />
+                <AddOwnerBtn />
             </div>
             <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">
