@@ -12,6 +12,7 @@ import { Owner } from "@/types/owner"
 import { Button } from "./ui/button"
 import AddOwnerBtn from "./AddOwnerBtn"
 import DeleteOwnerBtn from "./DeleteOwnerBtn"
+import EditOwnerBtn from "./EditOwnerBtn"
 
 export default function OwnerTables({ owners }: { owners: Owner[] }) {
     const containerVariants = {
@@ -96,11 +97,18 @@ export default function OwnerTables({ owners }: { owners: Owner[] }) {
                                     </TableCell>
                                     <TableCell>{owner?.owner_phone}</TableCell>
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
-                                        {/* <EditPetBtn owner={owner} />
-                                        <DeletePetBtn petId={owner.id_hewan} /> */}
-                                        <Button className="text-white bg-slate-900 hover:bg-slate-800">
-                                            Edit
-                                        </Button>
+                                        <EditOwnerBtn
+                                            owner={{
+                                                owner_id: owner.owner_id,
+                                                owner_givenname:
+                                                    owner.owner_givenname,
+                                                owner_familyname:
+                                                    owner.owner_familyname,
+                                                owner_address:
+                                                    owner.owner_address,
+                                                owner_phone: owner.owner_phone,
+                                            }}
+                                        />
                                         <DeleteOwnerBtn
                                             ownerId={owner.owner_id}
                                         />
