@@ -72,6 +72,13 @@ export default function AddAnimalBtn() {
         })
     }
 
+    const handleSelectTypeChange = (value: string) => {
+        setFormData({
+            ...formData,
+            at_id: parseInt(value),
+        })
+    }
+
     const handleAdd = async (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
         try {
@@ -144,13 +151,20 @@ export default function AddAnimalBtn() {
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="at_id">Pet Type</Label>
-                            <Input
-                                onChange={handleChange}
-                                id="at_id"
-                                placeholder="1"
-                                type="number"
-                                className="shadow-md placeholder:text-slate-500 text-slate-900"
-                            />
+                            <Select
+                                value={formData.at_id.toString()}
+                                onValueChange={handleSelectTypeChange}
+                            >
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Select owner" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white text-slate-900">
+                                    <SelectItem value="1">Kucing</SelectItem>
+                                    <SelectItem value="2">Anjing</SelectItem>
+                                    <SelectItem value="3">Kelinci</SelectItem>
+                                    <SelectItem value="4">Hamster</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="owner_id">Owner</Label>
