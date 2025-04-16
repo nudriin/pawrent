@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Visit } from "@/types/visit"
 import AddVisitBtn from "./AddVisitBtn"
 import DeleteVisitBtn from "./DeleteVisitBtn"
+import EditVisitBtn from "./EditVisitBtn"
 
 export default function VisitTables({ visits }: { visits: Visit[] }) {
     const containerVariants = {
@@ -100,8 +101,7 @@ export default function VisitTables({ visits }: { visits: Visit[] }) {
                                         {visit?.animal?.animal_name ?? "N/A"}
                                     </TableCell>
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
-                                        {/* <EditPetBtn visit={visit} />
-                                        <DeletePetBtn petId={visit.id_hewan} /> */}
+                                        <EditVisitBtn visit={visit} />
                                         <DeleteVisitBtn
                                             visitId={visit.visit_id}
                                         />

@@ -52,3 +52,8 @@ export interface VisitAddRequest {
     vet_id: number
     from_visit_id?: string | null
 }
+
+export interface VisitEditRequest {
+    visit_id: number
+    visit_notes: string
+}
