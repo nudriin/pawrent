@@ -51,7 +51,10 @@ export default function Header() {
                     <div className="flex gap-2">
                         <Link to="/auth">
                             <li className="">
-                                <Button className="border rounded-full cursor-pointer backdrop-blur-sm border-paw bg-white/10 text-primary hover:text-white">
+                                <Button
+                                    className="border rounded-full cursor-pointer text-slate-900 backdrop-blur-sm border-paw bg-white/10 text-primary hover:text-white"
+                                    style={{ color: "#000" }}
+                                >
                                     Login
                                 </Button>
                             </li>

@@ -142,14 +142,14 @@ export default function Doctor() {
             variants={containerVariants}
         >
             <motion.h1
-                className="text-4xl w-1/3 font-medium mb-10 mt-4 text-slate-900"
+                className="w-1/3 mt-4 mb-10 text-4xl font-medium text-slate-900"
                 variants={headingVariants}
             >
                 Our doctors provide a wide range of services, from routine
                 check-ups
             </motion.h1>
             <motion.div
-                className="grid grid-cols-2 gap-4 bg-paw rounded-2xl text-white"
+                className="grid grid-cols-2 gap-4 text-white bg-paw rounded-2xl"
                 variants={contentBoxVariants}
                 whileHover="hover"
                 onHoverStart={() => setIsHovered(true)}
@@ -162,7 +162,7 @@ export default function Doctor() {
                         Veterinary Medicine (DVM) degree from an accredited
                         veterinary school.
                     </motion.p>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                         <ul>
                             {[
                                 "Surgeon",
@@ -193,7 +193,7 @@ export default function Doctor() {
                             whileTap="tap"
                             className="bg-transparent"
                         >
-                            <Button className="bg-white rounded-full text-secondary-foreground hover:text-white cursor-pointer">
+                            <Button className="bg-white rounded-full cursor-pointer text-slate-700 hover:text-white">
                                 Free Call
                             </Button>
                         </motion.div>
