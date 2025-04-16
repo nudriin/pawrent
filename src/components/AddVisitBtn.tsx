@@ -108,7 +108,7 @@ export default function AddVisitBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 text-white bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
+                <Button className="flex items-center justify-center h-full gap-2 text-white bg-slate-900 group hover:border-slate-900 hover:cursor-pointer hover:bg-slate-800 hover:text-white">
                     <p className="font-semibold">Add Visit</p>
                 </Button>
             </DialogTrigger>
