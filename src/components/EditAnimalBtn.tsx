@@ -105,6 +105,7 @@ export default function EditAnimalBtn({
                         onClick={handleAdd}
                         className="w-full text-white cursor-pointer text-secondary bg-slate-900 hover:bg-slate-800 hover:text-white"
                         type="submit"
+                        style={{ color: "white" }}
                     >
                         Edit
                     </Button>
