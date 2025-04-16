@@ -24,7 +24,7 @@ import { Animal } from "@/types/animal"
 
 export default function AddVisitBtn() {
     const [formData, setFormData] = useState<VisitAddRequest>({
-        visit_date_time: "2024-9-10T00:00:00.000Z",
+        visit_date_time: "2024-09-10T00:00:00.000Z",
         visit_notes: "Lorem",
         animal_id: 1,
         vet_id: 1,
@@ -59,11 +59,15 @@ export default function AddVisitBtn() {
     }, [getAllAnimals])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value =
+            e.target.id === "visit_date_time"
+                ? `${e.target.value}T00:00:00.000Z`
+                : e.target.value
+
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value,
+            [e.target.id]: value,
         })
-        console.log(formData)
     }
 
     const handleSelectChange = (value: string) => {
@@ -84,8 +88,7 @@ export default function AddVisitBtn() {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        visit_date_time:
-                            formData.visit_date_time + "T00:00:00.000Z",
+                        visit_date_time: formData.visit_date_time,
                         visit_notes: formData.visit_notes,
                         animal_id: formData.animal_id,
                         vet_id: parseInt(formData.vet_id.toString()),
@@ -103,6 +106,13 @@ export default function AddVisitBtn() {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const handleSelectTypeChange = (value: string) => {
+        setFormData({
+            ...formData,
+            vet_id: parseInt(value),
+        })
     }
 
     return (
@@ -125,16 +135,20 @@ export default function AddVisitBtn() {
                 <form>
                     <div className="grid items-center w-full gap-4">
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="visit_date_time">
-                                Date (Y-M-D)
-                            </Label>
-                            <Input
-                                onChange={handleChange}
-                                id="visit_date_time"
-                                placeholder="2025-10-29"
-                                type="text"
-                                className="shadow-md placeholder:text-slate-500 text-slate-900"
-                            />
+                            <Label htmlFor="visit_date_time">Birth Date</Label>
+                            <div className="">
+                                <input
+                                    type="date"
+                                    id="visit_date_time"
+                                    onChange={handleChange}
+                                    className="flex w-full px-3 py-2 text-sm bg-white border rounded-md shadow-md justify-center0 jus text-slate-900 border-slate-300 ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+                                    value={
+                                        new Date(formData.visit_date_time)
+                                            .toISOString()
+                                            .split("T")[0]
+                                    }
+                                />
+                            </div>
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="visit_notes">Notes</Label>
@@ -173,22 +187,35 @@ export default function AddVisitBtn() {
                             </Select>
                         </div>
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="at_id">Vet ID</Label>
-                            <Input
-                                onChange={handleChange}
-                                id="at_id"
-                                placeholder="1"
-                                type="number"
-                                className="shadow-md placeholder:text-slate-500 text-slate-900"
-                            />
+                            <Label htmlFor="vet_id">Doctor</Label>
+                            <Select
+                                value={formData.vet_id.toString()}
+                                onValueChange={handleSelectTypeChange}
+                            >
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Select owner" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white text-slate-900">
+                                    <SelectItem value="1">Dr. Boyke</SelectItem>
+                                    <SelectItem value="2">
+                                        Dr. Nurdin
+                                    </SelectItem>
+                                    <SelectItem value="3">Dr. Jordi</SelectItem>
+                                    <SelectItem value="4">
+                                        Dr. Luniko
+                                    </SelectItem>
+                                    <SelectItem value="5">Dr. Putri</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
                     </div>
                 </form>
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900 hover:bg-slate-800 hover:text-white"
                         type="submit"
+                        style={{ color: "white" }}
                     >
                         Save
                     </Button>
