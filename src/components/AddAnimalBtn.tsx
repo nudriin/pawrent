@@ -58,11 +58,15 @@ export default function AddAnimalBtn() {
     }, [getAllOwners])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value =
+            e.target.id === "animal_born"
+                ? `${e.target.value}T00:00:00.000Z`
+                : e.target.value
+
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value,
+            [e.target.id]: value,
         })
-        console.log(formData)
     }
 
     const handleSelectChange = (value: string) => {
@@ -90,9 +94,7 @@ export default function AddAnimalBtn() {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        animal_name: formData.animal_name,
-                        animal_born: formData.animal_born + "T00:00:00.000Z",
-                        owner_id: formData.owner_id,
+                        ...formData,
                         at_id: parseInt(formData.at_id.toString()),
                     }),
                 }
@@ -138,16 +140,20 @@ export default function AddAnimalBtn() {
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="animal_born">
-                                Birth Date (Y-M-D)
-                            </Label>
-                            <Input
-                                onChange={handleChange}
-                                id="animal_born"
-                                placeholder="2025-10-29"
-                                type="text"
-                                className="shadow-md placeholder:text-slate-500 text-slate-900"
-                            />
+                            <Label htmlFor="animal_born">Birth Date</Label>
+                            <div className="">
+                                <input
+                                    type="date"
+                                    id="animal_born"
+                                    onChange={handleChange}
+                                    className="flex w-full px-3 py-2 text-sm bg-white border rounded-md shadow-md justify-center0 jus text-slate-900 border-slate-300 ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+                                    value={
+                                        new Date(formData.animal_born)
+                                            .toISOString()
+                                            .split("T")[0]
+                                    }
+                                />
+                            </div>
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="at_id">Pet Type</Label>
@@ -199,7 +205,7 @@ export default function AddAnimalBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900 hover:bg-slate-800 hover:text-white"
                         type="submit"
                     >
                         Save

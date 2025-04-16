@@ -22,12 +22,15 @@ export default function EditAnimalBtn({
     const navigate = useNavigate()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value =
+            e.target.id === "animal_born"
+                ? `${e.target.value}T00:00:00.000Z`
+                : e.target.value
+
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value,
-            animal_id: animal.animal_id,
+            [e.target.id]: value,
         })
-        console.log(formData)
     }
 
     const handleAdd = async (e: React.MouseEvent<HTMLElement>) => {
@@ -43,7 +46,7 @@ export default function EditAnimalBtn({
                     body: JSON.stringify({
                         animal_id: formData.animal_id,
                         animal_name: formData.animal_name,
-                        animal_born: formData.animal_born + "T00:00:00.000Z",
+                        animal_born: formData.animal_born,
                     }),
                 }
             )
@@ -89,14 +92,19 @@ export default function EditAnimalBtn({
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="animal_born">Birth Date</Label>
-                            <Input
-                                onChange={handleChange}
-                                id="animal_born"
-                                placeholder="2025"
-                                type="text"
-                                className="shadow-md placeholder:text-slate-500 text-slate-900"
-                                defaultValue={animal.animal_born}
-                            />
+                            <div className="">
+                                <input
+                                    type="date"
+                                    id="animal_born"
+                                    onChange={handleChange}
+                                    className="flex w-full px-3 py-2 text-sm bg-white border rounded-md shadow-md justify-center0 jus text-slate-900 border-slate-300 ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+                                    value={
+                                        new Date(formData.animal_born)
+                                            .toISOString()
+                                            .split("T")[0]
+                                    }
+                                />
+                            </div>
                         </div>
                     </div>
                 </form>
