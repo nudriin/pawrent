@@ -39,7 +39,14 @@ export default function OwnerAnimalVisit() {
     return (
         <OwnerDashboardLayout>
             <div className="h-full pt-10">
-                <div className="w-1/2 h-full mx-auto overflow-hidden">
+                <h1 className="text-4xl font-bold text-center text-slate-900">
+                    Visit Portal
+                </h1>
+                <p className="mb-5 text-center text-slate-600">
+                    Track all veterinary visits, appointments, and treatment
+                    records for pets.
+                </p>
+                <div className="w-2/3 h-full mx-auto overflow-hidden">
                     <OwnerAnimalVisitTables visits={visits} />
                 </div>
             </div>

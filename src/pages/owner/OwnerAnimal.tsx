@@ -39,7 +39,14 @@ export default function OwnerAnimal() {
     return (
         <OwnerDashboardLayout>
             <div className="h-full pt-10">
-                <div className="w-1/2 h-full mx-auto overflow-hidden">
+                <h1 className="text-4xl font-bold text-center text-slate-900">
+                    Animal Portal
+                </h1>
+                <p className="mb-5 text-center text-slate-600">
+                    Comprehensive overview of registered companion animals and
+                    their care records.
+                </p>
+                <div className="w-2/3 h-full mx-auto overflow-hidden">
                     <OwnerAnimalTables animals={animals} />
                 </div>
             </div>
