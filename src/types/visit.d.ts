@@ -44,3 +44,11 @@ export interface AnimalVisit {
         animal_name: string
     }
 }
+
+export interface VisitAddRequest {
+    visit_date_time: string
+    visit_notes: string
+    animal_id: number
+    vet_id: number
+    from_visit_id?: string | null
+}

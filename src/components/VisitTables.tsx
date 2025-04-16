@@ -5,12 +5,12 @@ import {
     TableCell,
     TableHeader,
 } from "@/components/ui/table"
-import AddPetBtn from "./AddPetBtn"
 // import DeletePetBtn from "./DeletePetBtn"
 // import EditPetBtn from "./EditPetBtn"
 import { motion, AnimatePresence } from "framer-motion"
 import { Visit } from "@/types/visit"
-import { Button } from "./ui/button"
+import AddVisitBtn from "./AddVisitBtn"
+import DeleteVisitBtn from "./DeleteVisitBtn"
 
 export default function VisitTables({ visits }: { visits: Visit[] }) {
     const containerVariants = {
@@ -48,7 +48,7 @@ export default function VisitTables({ visits }: { visits: Visit[] }) {
             animate="visible"
         >
             <div className="self-end">
-                <AddPetBtn />
+                <AddVisitBtn />
             </div>
             <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">
@@ -102,15 +102,9 @@ export default function VisitTables({ visits }: { visits: Visit[] }) {
                                     <TableCell className="space-x-2 text-right rounded-br-lg">
                                         {/* <EditPetBtn visit={visit} />
                                         <DeletePetBtn petId={visit.id_hewan} /> */}
-                                        <Button className="text-white bg-slate-900 hover:bg-slate-800">
-                                            Edit
-                                        </Button>
-                                        <Button
-                                            variant={"destructive"}
-                                            className="text-white bg-red-500 hover:bg-red-600"
-                                        >
-                                            Delete
-                                        </Button>
+                                        <DeleteVisitBtn
+                                            visitId={visit.visit_id}
+                                        />
                                     </TableCell>
                                 </motion.tr>
                             ))}
