@@ -12,7 +12,7 @@ export default function AdminDashboardLayout({
                 <div className="flex flex-col bg-white w-[16rem] rounded-2xl">
                     <AdminSidebar />
                 </div>
-                <div className="w-9/12 h-full min-h-screen rounded-2xl">
+                <div className="w-9/12 h-full max-h-screen min-h-screen overflow-hidden rounded-2xl">
                     {children}
                 </div>
             </div>

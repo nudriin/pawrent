@@ -32,6 +32,13 @@ export default function Visit() {
     return (
         <AdminDashboardLayout>
             <div className="h-full pt-10">
+                <h1 className="text-4xl font-bold text-center text-slate-900">
+                    Visit Management System
+                </h1>
+                <p className="mb-5 text-center text-slate-600">
+                    Track and manage all veterinary visits, appointments, and
+                    treatment records for pets.
+                </p>
                 <div className="w-9/12 h-full mx-auto">
                     <VisitTables visits={visits} />
                 </div>

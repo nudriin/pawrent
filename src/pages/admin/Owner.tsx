@@ -32,6 +32,13 @@ export default function Owner() {
     return (
         <AdminDashboardLayout>
             <div className="h-full pt-10">
+                <h1 className="text-4xl font-bold text-center text-slate-900">
+                    Client Management System
+                </h1>
+                <p className="mb-5 text-center text-slate-600">
+                    View and manage all registered pet owners and their contact
+                    information.
+                </p>
                 <div className="w-9/12 h-full mx-auto">
                     <OwnerTables owners={owners} />
                 </div>

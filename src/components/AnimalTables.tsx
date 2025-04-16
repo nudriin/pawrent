@@ -51,7 +51,7 @@ export default function AnimalTables({ animals }: { animals: Animal[] }) {
             <div className="self-end">
                 <AddAnimalBtn />
             </div>
-            <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-scroll text-slate-900">
+            <div className="w-full min-h-[200px] max-h-[65vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">
                     <TableCaption>
                         <motion.div

@@ -51,7 +51,7 @@ export default function VisitTables({ visits }: { visits: Visit[] }) {
             <div className="self-end">
                 <AddVisitBtn />
             </div>
-            <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-scroll text-slate-900">
+            <div className="w-full min-h-[200px] max-h-[65vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">
                     <TableCaption>
                         <motion.div
