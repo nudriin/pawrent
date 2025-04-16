@@ -1,4 +1,3 @@
-import { useCookies } from "react-cookie"
 import { Button } from "./ui/button"
 import {
     Dialog,
@@ -11,18 +10,16 @@ import {
 } from "./ui/dialog"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
-import { PetAddRequest } from "@/types/pet"
+import { OwnerAddRequest } from "@/types/owner"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function AddPetBtn() {
-    const [cookies] = useCookies(["auth"])
-    const auth = cookies.auth
-    const [formData, setFormData] = useState<PetAddRequest>({
-        nama_hewan: "Putri",
-        tahun_lahir_hewan: "2020",
-        jenis_hewan: "Kucing",
-        id_pawrent: "qHN789tyfKDckDhhcS0X8",
+export default function AddOwnerBtn() {
+    const [formData, setFormData] = useState<OwnerAddRequest>({
+        owner_givenname: "John",
+        owner_familyname: "Doe",
+        owner_address: "014 Catharine Parkways",
+        owner_phone: "082323643264",
     })
     const navigate = useNavigate()
 
@@ -30,7 +27,6 @@ export default function AddPetBtn() {
         setFormData({
             ...formData,
             [e.target.id]: e.target.value,
-            id_pawrent: auth.id_pawrent as string,
         })
         console.log(formData)
     }
@@ -38,13 +34,16 @@ export default function AddPetBtn() {
     const handleAdd = async (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
         try {
-            const response = await fetch("/api/hewan", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            })
+            const response = await fetch(
+                "http://localhost:5000/api/admin/owner",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                }
+            )
 
             const body = await response.json()
 
@@ -60,14 +59,14 @@ export default function AddPetBtn() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="flex items-center justify-center h-full gap-2 text-white rounded-full bg-slate-900 group hover:border-slate-900 hover:cursor-pointer">
-                    <p className="font-semibold">Add Pet</p>
+                <Button className="flex items-center justify-center h-full gap-2 text-white bg-slate-900 group hover:border-slate-900 hover:cursor-pointer hover:bg-slate-800 hover:text-white">
+                    <p className="font-semibold">Add Owner</p>
                 </Button>
             </DialogTrigger>
             <DialogContent className="bg-white text-slate-900">
                 <DialogHeader className="text-left">
                     <DialogTitle className="text-2xl font-semibold">
-                        Add Pet
+                        Add Owner
                     </DialogTitle>
                     <DialogDescription>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -77,32 +76,40 @@ export default function AddPetBtn() {
                 <form>
                     <div className="grid items-center w-full gap-4">
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="nama_hewan">Name</Label>
+                            <Label htmlFor="owner_givenname">First Name</Label>
                             <Input
                                 onChange={handleChange}
-                                id="nama_hewan"
-                                placeholder="Chiko"
+                                id="owner_givenname"
+                                placeholder="John"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="tahun_lahir_hewan">
-                                Birth Date
-                            </Label>
+                            <Label htmlFor="owner_familyname">Last Name</Label>
                             <Input
                                 onChange={handleChange}
-                                id="tahun_lahir_hewan"
-                                placeholder="2025"
+                                id="owner_familyname"
+                                placeholder="Doe"
                                 type="text"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="jenis_hewan">Pet Type</Label>
+                            <Label htmlFor="owner_address">Address</Label>
                             <Input
                                 onChange={handleChange}
-                                id="jenis_hewan"
-                                placeholder="Duelist"
+                                id="owner_address"
+                                placeholder="014 Catharine Parkways"
+                                type="text"
+                                className="shadow-md placeholder:text-slate-500 text-slate-900"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-1.5">
+                            <Label htmlFor="owner_phone">Phone</Label>
+                            <Input
+                                onChange={handleChange}
+                                id="owner_phone"
+                                placeholder="082323****"
                                 type="text"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
                             />
@@ -112,7 +119,7 @@ export default function AddPetBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white rounded-full cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900"
                         type="submit"
                     >
                         Save
