@@ -19,6 +19,7 @@ import PrivateRouteOwner from "./components/PrivateRouteOwner"
 import OwnerAnimal from "./pages/owner/OwnerAnimal"
 import OwnerAnimalVisit from "./pages/owner/OwnerAnimalVisit"
 import { OwnerRegister } from "./pages/owner/OwnerRegister"
+import OwnerSubmitVisit from "./pages/owner/OwnerSubmitVisit"
 
 function App() {
     return (
@@ -59,6 +60,10 @@ function App() {
                     <Route
                         element={<OwnerAnimalVisit />}
                         path="/owner/visits"
+                    />
+                    <Route
+                        element={<OwnerSubmitVisit />}
+                        path="/owner/visits/submit"
                     />
                 </Route>
             </Routes>

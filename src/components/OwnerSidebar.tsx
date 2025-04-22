@@ -27,6 +27,11 @@ export default function OwnerSidebar() {
                             Visits
                         </li>
                     </NavLink>
+                    <NavLink to="/owner/visits/submit">
+                        <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
+                            Visit Submissions
+                        </li>
+                    </NavLink>
                 </ul>
                 <li
                     className="flex items-center gap-2 px-4 py-3 mb-2 font-bold bg-red-500 rounded-full cursor-pointer font-rubik hover:bg-red-400 hover:text-white hover:rounded-full"

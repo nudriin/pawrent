@@ -131,7 +131,7 @@ export function OwnerLogin() {
                                         id="username"
                                         placeholder="Username"
                                         type="text"
-                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500 text-paw-secondary placeholder:text-paw-secondary"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5 text-paw-secondary">
@@ -141,7 +141,7 @@ export function OwnerLogin() {
                                         id="password"
                                         placeholder="*****"
                                         type="password"
-                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500 text-paw-secondary placeholder:text-paw-secondary"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
                                     />
                                 </div>
                             </motion.div>

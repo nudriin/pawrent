@@ -57,3 +57,11 @@ export interface VisitEditRequest {
     visit_id: number
     visit_notes: string
 }
+
+interface VisitSubmission {
+    id: number
+    keluhan: string
+    id_animal: number
+    id_owner: number
+    animal: Animal
+}
