@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/table"
 import { motion, AnimatePresence } from "framer-motion"
 import { VisitSubmission } from "@/types/visit"
-import AddVisitBtn from "./AddVisitBtn"
+import AddVisitSubmissionBtn from "./AddVisitSubmissionBtn"
 
 export default function SubmitVisitTables({
     submitVisits,
@@ -49,7 +49,7 @@ export default function SubmitVisitTables({
             animate="visible"
         >
             <div className="self-end">
-                <AddVisitBtn />
+                <AddVisitSubmissionBtn />
             </div>
             <div className="w-full min-h-[200px] max-h-[65vh] overflow-y-scroll text-slate-900">
                 <Table className="w-full">

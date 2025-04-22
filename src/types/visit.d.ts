@@ -65,3 +65,9 @@ interface VisitSubmission {
     id_owner: number
     animal: Animal
 }
+
+interface AddVisitSubmissionRequest {
+    keluhan: string
+    id_animal: number
+    id_owner: number
+}
