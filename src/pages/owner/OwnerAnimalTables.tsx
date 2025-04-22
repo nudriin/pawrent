@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/table"
 import { motion, AnimatePresence } from "framer-motion"
 import { Animal } from "@/types/animal"
+import AddAnimalOwnerBtn from "@/components/AddAnimalOwnerBtn"
 
 export default function OwnerAnimalTables({ animals }: { animals: Animal[] }) {
     const containerVariants = {
@@ -43,6 +44,9 @@ export default function OwnerAnimalTables({ animals }: { animals: Animal[] }) {
             initial="hidden"
             animate="visible"
         >
+            <div className="self-end">
+                <AddAnimalOwnerBtn />
+            </div>
             <div className="w-full min-h-[200px] max-h-[75vh] overflow-y-auto text-slate-900">
                 <Table className="w-full">
                     <TableCaption>
