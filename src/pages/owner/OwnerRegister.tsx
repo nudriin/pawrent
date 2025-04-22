@@ -9,20 +9,26 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
-import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
-interface LoginRequest {
+interface RegisterRequest {
     username: string
     password: string
+    owner_givenname: string
+    owner_familyname: string
+    owner_address: string
+    owner_phone: string
 }
 
-export function OwnerLogin() {
-    const [, setCookie] = useCookies(["owner_auth"])
-    const [formData, setFormData] = useState<LoginRequest>({
+export function OwnerRegister() {
+    const [formData, setFormData] = useState<RegisterRequest>({
         username: "",
         password: "",
+        owner_givenname: "",
+        owner_familyname: "",
+        owner_address: "",
+        owner_phone: "",
     })
     const navigate = useNavigate()
 
@@ -34,11 +40,11 @@ export function OwnerLogin() {
         console.log(formData)
     }
 
-    const handleLogin = async (e: React.MouseEvent<HTMLElement>) => {
+    const handleRegister = async (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `http://localhost:5001/api/owner/login`,
+                `http://localhost:5001/api/owner/register`,
                 {
                     method: "POST",
                     headers: {
@@ -51,8 +57,6 @@ export function OwnerLogin() {
             const body = await response.json()
 
             console.log(body)
-
-            setCookie("owner_auth", JSON.stringify(body.data))
 
             navigate("/owner")
         } catch (error) {
@@ -94,17 +98,17 @@ export function OwnerLogin() {
 
     return (
         <motion.div
-            className="flex flex-col items-center justify-center max-h-screen min-h-screen text-secondary text-slate-900"
+            className="flex flex-col items-center justify-center min-h-screen text-secondary text-slate-900"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
             <motion.div variants={cardVariants}>
-                <Card className="w-[350px] shadow-2xl">
+                <Card className="w-[450px] shadow-2xl">
                     <CardHeader>
                         <motion.div variants={headerVariants}>
                             <CardTitle className="text-4xl font-bold text-paw">
-                                Login
+                                Register
                             </CardTitle>
                         </motion.div>
                         <motion.div variants={headerVariants}>
@@ -124,6 +128,33 @@ export function OwnerLogin() {
                                 variants={formItemVariants}
                                 className="grid items-center w-full gap-4"
                             >
+                                <div className="flex">
+                                    <div className="flex flex-col space-y-1.5 text-paw-secondary">
+                                        <Label htmlFor="owner_givenname">
+                                            First Name
+                                        </Label>
+                                        <Input
+                                            onChange={handleChange}
+                                            id="owner_givenname"
+                                            placeholder="First Name"
+                                            type="text"
+                                            className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col space-y-1.5 text-paw-secondary">
+                                        <Label htmlFor="owner_familyname">
+                                            Last Name
+                                        </Label>
+                                        <Input
+                                            onChange={handleChange}
+                                            id="owner_familyname"
+                                            placeholder="Last Name"
+                                            type="text"
+                                            className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex"></div>
                                 <div className="flex flex-col space-y-1.5 text-paw-secondary">
                                     <Label htmlFor="username">Username</Label>
                                     <Input
@@ -131,7 +162,7 @@ export function OwnerLogin() {
                                         id="username"
                                         placeholder="Username"
                                         type="text"
-                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500 text-paw-secondary placeholder:text-paw-secondary"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5 text-paw-secondary">
@@ -141,7 +172,29 @@ export function OwnerLogin() {
                                         id="password"
                                         placeholder="*****"
                                         type="password"
-                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500 text-paw-secondary placeholder:text-paw-secondary"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
+                                    />
+                                </div>
+                                <div className="flex flex-col space-y-1.5 text-paw-secondary">
+                                    <Label htmlFor="owner_address">
+                                        Address
+                                    </Label>
+                                    <Input
+                                        onChange={handleChange}
+                                        id="owner_address"
+                                        placeholder="Address"
+                                        type="text"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
+                                    />
+                                </div>
+                                <div className="flex flex-col space-y-1.5 text-paw-secondary">
+                                    <Label htmlFor="owner_phone">Phone</Label>
+                                    <Input
+                                        onChange={handleChange}
+                                        id="owner_phone"
+                                        placeholder="Phone"
+                                        type="text"
+                                        className="border border-slate-900 text-paw-secondary placeholder:text-paw-secondary"
                                     />
                                 </div>
                             </motion.div>
@@ -151,10 +204,10 @@ export function OwnerLogin() {
                             >
                                 <Button
                                     type="submit"
-                                    onClick={handleLogin}
+                                    onClick={handleRegister}
                                     className="w-full text-white rounded-full cursor-pointer bg-paw"
                                 >
-                                    Login
+                                    Register
                                 </Button>
                             </motion.div>
                         </motion.form>

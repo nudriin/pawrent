@@ -18,6 +18,7 @@ import SignRouteOwner from "./components/SignRouteOwner"
 import PrivateRouteOwner from "./components/PrivateRouteOwner"
 import OwnerAnimal from "./pages/owner/OwnerAnimal"
 import OwnerAnimalVisit from "./pages/owner/OwnerAnimalVisit"
+import { OwnerRegister } from "./pages/owner/OwnerRegister"
 
 function App() {
     return (
@@ -47,6 +48,10 @@ function App() {
 
                 <Route element={<SignRouteOwner />}>
                     <Route element={<OwnerLogin />} path="/auth/owner" />
+                    <Route
+                        element={<OwnerRegister />}
+                        path="/auth/owner/register"
+                    />
                 </Route>
 
                 <Route element={<PrivateRouteOwner />}>
