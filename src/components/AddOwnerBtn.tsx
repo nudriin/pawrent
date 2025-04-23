@@ -1,3 +1,4 @@
+import { toast } from "@/hooks/use-toast"
 import { Button } from "./ui/button"
 import {
     Dialog,
@@ -47,12 +48,33 @@ export default function AddOwnerBtn() {
 
             const body = await response.json()
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Owner added successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
+
             if (body) {
                 navigate(0)
             }
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
@@ -82,6 +104,9 @@ export default function AddOwnerBtn() {
                                 id="owner_givenname"
                                 placeholder="John"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -92,6 +117,9 @@ export default function AddOwnerBtn() {
                                 placeholder="Doe"
                                 type="text"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -102,6 +130,9 @@ export default function AddOwnerBtn() {
                                 placeholder="014 Catharine Parkways"
                                 type="text"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -112,6 +143,9 @@ export default function AddOwnerBtn() {
                                 placeholder="082323****"
                                 type="text"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                     </div>
@@ -119,7 +153,7 @@ export default function AddOwnerBtn() {
                 <DialogFooter>
                     <Button
                         onClick={handleAdd}
-                        className="w-full text-white cursor-pointer bg-slate-900"
+                        className="w-full text-white cursor-pointer bg-slate-900 hover:bg-slate-800"
                         type="submit"
                     >
                         Save
