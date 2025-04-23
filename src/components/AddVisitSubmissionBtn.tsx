@@ -22,6 +22,7 @@ import {
 import { Animal } from "@/types/animal"
 import { AddVisitSubmissionRequest } from "@/types/visit"
 import { useCookies } from "react-cookie"
+import { toast } from "@/hooks/use-toast"
 
 export default function AddVisitSubmissionBtn() {
     const [formData, setFormData] = useState<AddVisitSubmissionRequest>({
@@ -102,12 +103,33 @@ export default function AddVisitSubmissionBtn() {
 
             const body = await response.json()
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Visit added successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
+
             if (body) {
                 navigate(0)
             }
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
