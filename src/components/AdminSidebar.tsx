@@ -8,6 +8,12 @@ export default function AdminSidebar() {
         removeCookie("admin_auth")
         navigate("/")
     }
+
+    const activeLink =
+        "flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik bg-paw-secondary text-paw-secondary text-white rounded-full"
+    const nonActiveLink =
+        "flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full"
+
     return (
         <>
             <div className="flex flex-col min-h-screen p-6 bg-paw">
@@ -17,23 +23,32 @@ export default function AdminSidebar() {
                     </div>
                 </NavLink>
                 <ul className="space-y-4 text-left">
-                    <NavLink to="/dashboard/animals">
-                        <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
-                            Animal
-                        </li>
+                    <NavLink
+                        to="/dashboard/animals"
+                        className={({ isActive }) =>
+                            isActive ? activeLink : nonActiveLink
+                        }
+                    >
+                        <li className="">Animal</li>
                     </NavLink>
-                    <NavLink to="/dashboard/owners">
-                        <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
-                            Owner
-                        </li>
+                    <NavLink
+                        to="/dashboard/owners"
+                        className={({ isActive }) =>
+                            isActive ? activeLink : nonActiveLink
+                        }
+                    >
+                        <li className="">Owner</li>
                     </NavLink>
-                    <NavLink to="/dashboard/visits">
-                        <li className="flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik hover:bg-paw-secondary hover:text-white hover:rounded-full">
-                            Visit
-                        </li>
+                    <NavLink
+                        to="/dashboard/visits"
+                        className={({ isActive }) =>
+                            isActive ? activeLink : nonActiveLink
+                        }
+                    >
+                        <li className="">Visit</li>
                     </NavLink>
                     <li
-                        className="flex items-center gap-2 px-4 py-3 mb-2 font-bold bg-red-500 rounded-full cursor-pointer font-rubik hover:bg-red-400 hover:text-white hover:rounded-full"
+                        className="flex items-center gap-2 px-4 py-3 mb-2 font-bold text-red-500 border-2 border-red-500 rounded-full cursor-pointer font-rubik hover:bg-red-400 hover:text-white hover:rounded-full hover:border-red-400"
                         onClick={handleLogout}
                     >
                         Logout
