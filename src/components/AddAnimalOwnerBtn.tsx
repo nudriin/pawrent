@@ -21,6 +21,7 @@ import {
     SelectValue,
 } from "./ui/select"
 import { useCookies } from "react-cookie"
+import { toast } from "@/hooks/use-toast"
 
 export default function AddAnimalOwnerBtn() {
     const [formData, setFormData] = useState<AnimalAddRequest>({
@@ -72,6 +73,18 @@ export default function AddAnimalOwnerBtn() {
             )
 
             const body = await response.json()
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Animal added successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
 
             if (body) {
                 navigate(0)
@@ -79,6 +92,14 @@ export default function AddAnimalOwnerBtn() {
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
