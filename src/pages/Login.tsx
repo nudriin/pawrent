@@ -14,6 +14,7 @@ import { useCookies } from "react-cookie"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
+import { toast } from "@/hooks/use-toast"
 
 interface LoginRequest {
     no_telepon_pawrent: string
@@ -51,11 +52,31 @@ export function Login() {
 
             console.log(body)
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
             setCookie("auth", JSON.stringify(body.data))
+            toast({
+                title: "Sukses",
+                description: "Login berhasil",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
 
             navigate("/profile")
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
@@ -98,7 +119,7 @@ export function Login() {
 
     return (
         <motion.div
-            className="flex items-center justify-center flex-col min-h-screen max-h-screen text-secondary text-slate-900"
+            className="flex flex-col items-center justify-center max-h-screen min-h-screen text-secondary text-slate-900"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -126,7 +147,7 @@ export function Login() {
                         >
                             <motion.div
                                 variants={formItemVariants}
-                                className="grid w-full items-center gap-4"
+                                className="grid items-center w-full gap-4"
                             >
                                 <div className="flex flex-col space-y-1.5">
                                     <Label htmlFor="no_telepon_pawrent">
@@ -137,7 +158,10 @@ export function Login() {
                                         id="no_telepon_pawrent"
                                         placeholder="0829110****"
                                         type="tel"
-                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
+                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500"
+                                        style={{
+                                            border: "1px solid #171717",
+                                        }}
                                     />
                                 </div>
                                 <div className="flex flex-col space-y-1.5">
@@ -148,7 +172,10 @@ export function Login() {
                                         id="nama_lengkap_pawrent"
                                         placeholder="*****"
                                         type="password"
-                                        className="text-slate-900 border border-slate-900 placeholder:text-slate-500"
+                                        className="border text-slate-900 border-slate-900 placeholder:text-slate-500"
+                                        style={{
+                                            border: "1px solid #171717",
+                                        }}
                                     />
                                 </div>
                             </motion.div>
@@ -159,7 +186,7 @@ export function Login() {
                                 <Button
                                     type="submit"
                                     onClick={handleLogin}
-                                    className="w-full rounded-full cursor-pointer bg-slate-900 text-white"
+                                    className="w-full text-white rounded-full cursor-pointer bg-slate-900"
                                 >
                                     Login
                                 </Button>
