@@ -1,14 +1,7 @@
-import { useCookies } from "react-cookie"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import AdminLogout from "./AdminLogout"
 
 export default function AdminSidebar() {
-    const [, , removeCookie] = useCookies(["admin_auth"])
-    const navigate = useNavigate()
-    const handleLogout = () => {
-        removeCookie("admin_auth")
-        navigate("/")
-    }
-
     const activeLink =
         "flex items-center gap-2 px-4 py-3 mb-2 font-bold font-rubik bg-paw-secondary text-paw-secondary text-white rounded-full"
     const nonActiveLink =
@@ -48,10 +41,10 @@ export default function AdminSidebar() {
                         <li className="">Visit</li>
                     </NavLink>
                     <li
-                        className="flex items-center gap-2 px-4 py-3 mb-2 font-bold text-red-500 border-2 border-red-500 rounded-full cursor-pointer font-rubik hover:bg-red-400 hover:text-white hover:rounded-full hover:border-red-400"
-                        onClick={handleLogout}
+                        style={{ listStyleType: "none" }}
+                        className="flex items-center mt-auto"
                     >
-                        Logout
+                        <AdminLogout />
                     </li>
                 </ul>
             </div>
