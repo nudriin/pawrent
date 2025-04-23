@@ -1,3 +1,4 @@
+import { toast } from "@/hooks/use-toast"
 import { Button } from "./ui/button"
 import {
     Dialog,
@@ -42,12 +43,33 @@ export default function EditVisitBtn({ visit }: { visit: VisitEditRequest }) {
 
             const body = await response.json()
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Visit updated successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
+
             if (body) {
                 navigate(0)
             }
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
     return (
@@ -77,6 +99,9 @@ export default function EditVisitBtn({ visit }: { visit: VisitEditRequest }) {
                                 placeholder="Chiko"
                                 defaultValue={visit.visit_notes}
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                     </div>

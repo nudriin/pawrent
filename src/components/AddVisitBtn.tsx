@@ -21,6 +21,7 @@ import {
     SelectValue,
 } from "./ui/select"
 import { Animal } from "@/types/animal"
+import { toast } from "@/hooks/use-toast"
 
 export default function AddVisitBtn() {
     const [formData, setFormData] = useState<VisitAddRequest>({
@@ -98,6 +99,18 @@ export default function AddVisitBtn() {
             )
 
             const body = await response.json()
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Visit added successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
 
             if (body) {
                 navigate(0)
@@ -105,6 +118,14 @@ export default function AddVisitBtn() {
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
@@ -135,7 +156,7 @@ export default function AddVisitBtn() {
                 <form>
                     <div className="grid items-center w-full gap-4">
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="visit_date_time">Birth Date</Label>
+                            <Label htmlFor="visit_date_time">Date</Label>
                             <div className="">
                                 <input
                                     type="date"
@@ -147,6 +168,9 @@ export default function AddVisitBtn() {
                                             .toISOString()
                                             .split("T")[0]
                                     }
+                                    style={{
+                                        border: "1px solid #171717",
+                                    }}
                                 />
                             </div>
                         </div>
@@ -157,6 +181,9 @@ export default function AddVisitBtn() {
                                 id="visit_notes"
                                 placeholder="Add some notes here"
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">

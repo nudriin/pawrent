@@ -1,3 +1,4 @@
+import { toast } from "@/hooks/use-toast"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -30,12 +31,33 @@ export default function DeleteVisitBtn({ visitId }: { visitId: number }) {
 
             const body = await response.json()
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Visit deleted successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
+
             if (body) {
                 navigate(0)
             }
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
 
