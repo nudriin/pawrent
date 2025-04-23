@@ -56,14 +56,14 @@ function App() {
                 </Route>
 
                 <Route element={<PrivateRouteOwner />}>
-                    <Route element={<OwnerAnimal />} path="/owner" />
+                    <Route element={<OwnerAnimal />} path="/owner/animals" />
                     <Route
                         element={<OwnerAnimalVisit />}
                         path="/owner/visits"
                     />
                     <Route
                         element={<OwnerSubmitVisit />}
-                        path="/owner/visits/submit"
+                        path="/owner/submissions"
                     />
                 </Route>
             </Routes>

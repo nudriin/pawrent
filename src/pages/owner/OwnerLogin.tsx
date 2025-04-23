@@ -54,7 +54,7 @@ export function OwnerLogin() {
 
             setCookie("owner_auth", JSON.stringify(body.data))
 
-            navigate("/owner")
+            navigate("/owner/animals")
         } catch (error) {
             console.log(error)
         }
