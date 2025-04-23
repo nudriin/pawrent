@@ -1,3 +1,4 @@
+import { toast } from "@/hooks/use-toast"
 import { Button } from "./ui/button"
 import {
     Dialog,
@@ -53,12 +54,33 @@ export default function EditAnimalBtn({
 
             const body = await response.json()
 
+            if (body.success === false) {
+                throw Error(body.message)
+            }
+
+            toast({
+                title: "Sucess",
+                description: "Animal updated successfully",
+                style: {
+                    backgroundColor: "#183dff",
+                    color: "#fff",
+                },
+            })
+
             if (body) {
                 navigate(0)
             }
             console.log(body)
         } catch (error) {
             console.log(error)
+            toast({
+                title: "Error",
+                description: `${error}`,
+                style: {
+                    backgroundColor: "#f54260",
+                    color: "#fff",
+                },
+            })
         }
     }
     return (
@@ -88,6 +110,9 @@ export default function EditAnimalBtn({
                                 placeholder="Chiko"
                                 defaultValue={animal.animal_name}
                                 className="shadow-md placeholder:text-slate-500 text-slate-900"
+                                style={{
+                                    border: "1px solid #171717",
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-1.5">
@@ -103,6 +128,9 @@ export default function EditAnimalBtn({
                                             .toISOString()
                                             .split("T")[0]
                                     }
+                                    style={{
+                                        border: "1px solid #171717",
+                                    }}
                                 />
                             </div>
                         </div>
